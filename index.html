@@ -150,7 +150,7 @@
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
                             <h5 class="font-weight-bold mb-1">Exchange Programme S8 </h5>
                             <p class="mb-2"><strong> Centrale Méditerranée </strong> | <small>2023 - 2024 </small></p>
-                            <p>Cours pertinents : Intelligence Artificielle, Apprentissage Profond, Neurosciences computationnelles, Réseau de neurones convolutionnels, Cryptographie, Analyse de données, Traitement d'images, Aide à la décision.</p>
+                            <p>Relevant Courses: Artificial Intelligence, Deep Learning, Computational Neuroscience, Convolutional Neural Networks, Cryptography, Data Analysis, Image Processing, Decision Suppor</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
@@ -164,7 +164,7 @@
                                 
                                 - Mathematics: Probability, Statistics, Optimization, Partial Differential Equations, Dynamical Systems, Analysis, Image Processing
                                 - Business Sciences: Business Management, Corporate Finance, Market Finance
-                                - Physical Sciences: Quantum Physics, Theoretical Physics, Statistical Physics, Fluid Mechanics, Solid Physics, Biology
+                                - Physical Sciences: Quantum Physics, Theoretical Physics, Statistical Physics, Fluid Mechanics, Solid Physics,
                                 - IT: Algorithms and Programming, Signal Processing, Telecom and Mobility
                                 - Humanities and Social Sciences: Economics, Sociology, Law, Philosophy of Science.</p>
                         </div>
@@ -228,7 +228,7 @@
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Programming/h6>
+                            <h6 class="font-weight-bold">Programming</h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
                         <div class="progress">
@@ -561,26 +561,26 @@
                 <div class="col-lg-8">
                     <div class="contact-form text-center">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form name="sentMessage" id="contactForm" action="contact.php" method="post" novalidate="novalidate">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
+                                    <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name"
                                         required="required" data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
+                                    <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email"
                                         required="required" data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
+                                <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Subject"
                                     required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
+                                <textarea class="form-control py-3 px-4" rows="5" id="message" name="message" placeholder="Message"
                                     required="required"
                                     data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
@@ -595,7 +595,8 @@
             </div>
         </div>
     </div>
-    <!-- Contact End -->
+<!-- Contact End -->
+
 
 
     <!-- Footer Start -->
