@@ -1,662 +1,1394 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Mostapha EL ANSARI</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostapha EL ANSARI - Data Engineer & Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0ea5e9;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --accent: #8b5cf6;
+        }
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hire-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .hire-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h3 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typed-text {
+            color: var(--gray);
+            font-size: 1.5rem;
+            min-height: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary, .btn-outline {
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item strong {
+            color: var(--dark);
+            min-width: 100px;
+        }
+
+        .info-item span {
+            color: var(--gray);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .skill-category h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-header span {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-meta {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+
+        .experience-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: white;
+        }
+
+        #contact .section-title h2 {
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">EL ANSARI</span>Mostapha</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#qualification" class="nav-item nav-link">Quality</a>
-                <a href="#skill" class="nav-item nav-link">Skill</a>
-                <a href="#ACADEMIC" class="nav-item nav-link">Projects</a>
-                <a href="#certificates" class="nav-item nav-link">Certificates</a>
-                <a href="#contact" class="nav-item nav-link">Contact</a>
-            </div>
-            <a href="" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo"><span>EL ANSARI</span> Mostapha</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="hire-btn">Hire Me</a>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
-    <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>        
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h3>👋 Welcome, I'm</h3>
+                <h1>Mostapha <span class="gradient-text">EL ANSARI</span></h1>
+                <div class="typed-text">Data Engineer & Data Scientist</div>
+                <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 2rem;">
+                    Specialized in building data pipelines, ML models, and cloud infrastructure. 
+                    Passionate about transforming data into actionable insights.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://drive.google.com/file/d/1n4RcNd773JKvUVJJxI90PVtHqsmtnq4S/view?usp=sharing" class="btn-primary" target="_blank">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="#contact" class="btn-outline">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
                 </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/portfolio-1.png" alt="Mostapha EL ANSARI" onerror="this.style.display='none'">
             </div>
         </div>
-    </div>
-    <!-- Video Modal End -->
+    </section>
 
-
-    <!-- Header Start -->
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
+    <!-- About Section -->
+    <section id="about">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/portfolio-1.png" alt="">
-                </div>
-                <div class="col-lg-7 text-center text-lg-left">
-                    <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">Mostapha EL ANSARI</h1>
-                    <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
-                    <div class="typed-text d-none">Exchange Student at Centrale Méditerranée, Meng at Ecole Centrale Casablanca, DATA SCIENCE ENTHUSIASTE</div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                        <!-- Link to your PDF CV hosted on Google Drive -->
-                        <a href="https://drive.google.com/file/d/1hZhdve_pKEDNGUXE1XnukKG_ZeuXQ265/view?usp=sharing" class="btn btn-outline-light mr-5" target="_blank" rel="noopener noreferrer">Download CV</a>
-                        <!-- Play video button 
-                        <button type="button" class="btn-play" data-toggle="modal"
-                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
-                            <span></span>
-                        </button>
-                        <h5 class="font-weight-normal text-white m-0 ml-4 d-none d-sm-block">Play Video</h5>-->
-                    </div>
-                </div>
+            <div class="section-title">
+                <h2>About Me</h2>
             </div>
-        </div>
-    </div>
-    <!-- Header End -->
-
-    <!-- Header End -->
-
-
-     <!-- About Start -->
-     <div class="container-fluid py-5" id="about">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
-                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid rounded w-100" src="img/1.jpeg" alt="">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/1.jpeg" alt="About" onerror="this.style.display='none'">
                 </div>
-                <div class="col-lg-7">
-                    <h3 class="mb-4">Engineering student at Ecole Centrale Méditerranée
-                    </h3>
-                    <p>I am presently an exchange student, focusing on information science and numerical society at Centrale Méditerranée. Concurrently, I am engaged in engineering studies at École Centrale of Casablanca. My enthusiasm centers around artificial intelligence, specifically within the realm of machine learning, where I find fascination in both the underlying mathematics and the amalgamation of managerial techniques with engineering. Continuously, I am exploring fresh opportunities to hone my technical skills and gain practical industry experience. As a young engineer, my goal is to contribute to innovative and ambitious projects.</p>
-                    <div class="row mb-3">
-                        <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Mostapha EL ANSARI</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Birthday: <span class="text-secondary">12 August 2002</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">Bac+4</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+33784002041</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">mostapha.el_ansari@centrale-med.fr</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Address: <span class="text-secondary">10 Rue Henri Poincaré 13388 Marseille
-                        </span></h6></div>
-        
-                    </div>
-                    <!--<a href="" class="btn btn-outline-primary mr-4">Hire Me</a>
-                    <a href="" class="btn btn-outline-primary">Learn More</a>-->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-    <!-- Qualification Start -->
-    <div class="container-fluid py-5" id="qualification">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Quality</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Education & Expericence</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">My Education</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Exchange Programme S8 </h5>
-                            <p class="mb-2"><strong> Centrale Méditerranée </strong> | <small>2023 - 2024 </small></p>
-                            <p>Relevant Courses: Artificial Intelligence, Deep Learning, Computational Neuroscience, Convolutional Neural Networks, Cryptography, Data Analysis, Image Processing, Decision Support</p>
+                <div class="about-text">
+                    <h3>Data Engineer & Data Scientist</h3>
+                    <p>
+                        Currently an exchange student at École Centrale Méditerranée, specializing in Data Science 
+                        and Information Systems. I am simultaneously pursuing my engineering degree at École Centrale 
+                        Casablanca, with a strong focus on artificial intelligence and machine learning.
+                    </p>
+                    <p>
+                        My expertise lies in building robust data pipelines, implementing ML models in production, 
+                        and developing IoT solutions. I am passionate about leveraging data and AI to solve complex 
+                        business challenges and drive innovation.
+                    </p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Name:</strong>
+                            <span>Mostapha EL ANSARI</span>
                         </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Master of Engineering</h5>
-                            <p class="mb-2"><strong>Ecole Centrale Casablanca </strong> | <small>2022 - 2026</small></p>
-                            <p>École Centrale Casablanca stands as the premier generalist engineering school in Morocco, proudly affiliated with the international Écoles Centrale network. Employing an innovative pedagogy, its primary goal is to cultivate high-level engineers with a multidisciplinary mindset and a profound global perspective.
-
-                                The engineering diploma awarded by École Centrale Casablanca holds recognition from the French state, a testament to the accreditation bestowed by the CTI.
-                                
-                                The comprehensive core curriculum encompasses various domains:
-                                
-                                - Mathematics: Probability, Statistics, Optimization, Partial Differential Equations, Dynamical Systems, Analysis, Image Processing
-                                - Business Sciences: Business Management, Corporate Finance, Market Finance
-                                - Physical Sciences: Quantum Physics, Theoretical Physics, Statistical Physics, Fluid Mechanics, Solid Physics,
-                                - IT: Algorithms and Programming, Signal Processing, Telecom and Mobility
-                                - Humanities and Social Sciences: Economics, Sociology, Law, Philosophy of Science.</p>
+                        <div class="info-item">
+                            <strong>Birthday:</strong>
+                            <span>12 August 2002</span>
                         </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Preparatory classes degree</h5>
-                            <p class="mb-2"><strong>Preparatory classes for higher education institutions</strong> | <small>2020 - 2022</small></p>
-                            <p>Preparatory classes encompass a blend of in-class lectures, self-guided study, and demanding evaluations. These courses demand completion of advanced assignments and often involve highly challenging coursework.</p>
+                        <div class="info-item">
+                            <strong>Degree:</strong>
+                            <span>Master of Engineering</span>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-4">My Expericence</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Software engineering intern.</h5>
-                            <p class="mb-2"><strong>National Office of Electricity and Potable Water - Electricity Branch</strong> | <small>2023</small></p>
-                            <p>During this internship, my mission involves creating a web application for inventory management.</p>
+                        <div class="info-item">
+                            <strong>Phone:</strong>
+                            <span>+33 7 56 91 85 61</span>
                         </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Machine Learning Intern</h5>
-                            <p class="mb-2"><strong>CodSoft</strong> | <small>2023</small></p>
-                            <p>During my internship at CodSoft, I actively contributed to groundbreaking projects, showcasing my fervor for machine learning and AI. Some notable achievements include:</p>
-                        
-                            <ol>
-                                <li><strong>Credit Card Fraud Detection:</strong> I developed a sophisticated model enhancing financial security.</li>
-                                <li><strong>Customer Churn Prediction:</strong> I created a predictive model to anticipate customer churn, significantly improving retention strategies.</li>
-                                <li><strong>SMS Spam Detection:</strong> I built a robust system to identify spam SMS, optimizing customer communication.</li>
-                                <li><strong>Handwritten Text Generation:</strong> I delved into the realm of handwritten text generation, pushing the boundaries of textual creativity.</li>
-                            </ol>
-                        
-                            
+                        <div class="info-item">
+                            <strong>Email:</strong>
+                            <span>mostapha.elansari@outlook.fr</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Location:</strong>
+                            <span>Casablanca, Morocco</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Qualification End -->
+    </section>
 
-
-    <!-- Skill Start -->
-    <div class="container-fluid py-5" id="skill">
+    <!-- Experience Section -->
+    <section id="experience">
         <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Skills</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
+            <div class="section-title">
+                <h2>Professional Experience</h2>
             </div>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Analyse de données</h6>
-                            <h6 class="font-weight-bold">75%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Data Engineer - IoT & Cloud Infrastructure</h3>
+                    <div class="experience-meta">
+                        <i class="fas fa-building"></i> Smartly | 
+                        <i class="fas fa-calendar"></i> February 2025 – September 2025 | 
+                        <i class="fas fa-map-marker-alt"></i> Nice, France
                     </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Programming</h6>
-                            <h6 class="font-weight-bold">75%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">SQL</h6>
-                            <h6 class="font-weight-bold">60%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Problem-solving</h6>
-                            <h6 class="font-weight-bold">90%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Team spirit</h6>
-                            <h6 class="font-weight-bold">95%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Communication</h6>
-                            <h6 class="font-weight-bold">85%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Skill End -->
-
-<!-- Academic Projects Section -->
-    <div class="container-fluid py-5" id="academic-projects">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Academic</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Projects</h1>
-            </div>
-        <div class="row mt-5">
-
-            <!-- Project 1: Learning by Doing -->
-            <div class="col-lg-12">
-                <div class="project-info mb-4">
-                    <h2 class="font-weight-bold mb-3">"Learning by Doing" - Theme: Smart Cities in Africa</h2>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img src="img/project1_image.jpg" alt="Learning by Doing Image" class="project-image img-fluid mb-3">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="project-details border-left border-primary pt-2 pl-4 ml-2">
-                            <div class="position-relative mb-4">
-                                <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                                <h5 class="font-weight-bold mb-1">Revolutionizing Traffic with YOLO V8</h5>
-                                <p class="mb-2"><strong>Objective:</strong> Unleash the potential of YOLO V8 to transform traffic management, identifying the most traversed lanes dynamically.</p>
-                                <p class="mb-2"><strong>Mission:</strong> As part of a project initiative, I employed advanced image processing techniques leveraging YOLO V8 to detect and count vehicles within an intersection. The primary objective was to discern the lane with the highest volume of vehicles, aiming to streamline access to this lane for improved traffic flow and efficiency.</p>
-                                <p class="mb-2"><strong>Link:</strong> <a href="https://github.com/mostaphaelansari/Learning-by-doing.git" target="_blank">GitHub Repository</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: Coding-Week -->
-            <!-- Project 2: Coding-Week -->
-            <div class="col-lg-12 mt-5">
-                <div class="project-info mb-4">
-                    <h2 class="font-weight-bold mb-3">Coding-Week</h2>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-md-6 order-md-2">
-                        <img src="img/100.png" alt="Coding-Week Image" class="project-image img-fluid mb-3">
-                    </div>
-                    <div class="col-md-6 order-md-1">
-                        <div class="project-details border-left border-primary pt-2 pl-4 ml-2">
-                            <div class="position-relative mb-4">
-                                <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                                <h5 class="font-weight-bold mb-1">Personalized Movie Recommendations using MovieLens 100k Dataset and K-Means Clustering</h5>
-                                <p class="mb-2"><strong>Technologies:</strong> Pandas, NumPy, Seaborn, Matplotlib, Scikit-learn.</p>
-                                <p class="mb-2"><strong>Mission:</strong> In this project, I collected and analyzed the MovieLens 100k dataset using popular libraries such as Pandas, NumPy, Seaborn, Matplotlib, and Scikit-learn. The primary goal was to utilize the K-means clustering algorithm to compute the similarity of user preferences for various films. This enabled the generation of personalized movie recommendations based on users' similarities with others having similar preferences.</p>
-                                <p class="mb-2"><strong>Link:</strong> <a href="https://github.com/mostaphaelansari/data-Analytics-data-science/blob/main/Movie_recommender_systems_using_clustering_based_collaborative_filtering_py.ipynb" target="_blank">GitHub Repository</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Project 3: Scientific Deep Dive -->
-            <div class="col-lg-12 mt-5">
-                <div class="mb-4">
-                    <h2 class="font-weight-bold mb-3">Scientific Project: Image Segmentation Unveiled</h2>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img src="img/project3_image.jpg" alt="Scientific Project Image" class="img-fluid mb-3">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="border-left border-primary pt-2 pl-4 ml-2">
-                            <div class="position-relative mb-4">
-                                <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                                <h5 class="font-weight-bold mb-1">Transforming Medical Insights with TransGAN and TransUNET</h5>
-                                <p class="mb-2"><strong>Skills:</strong> Mastery in Machine Learning, Data Analysis, Expertise in PyTorch.</p>
-                                <p class="mb-2"><strong>Mission:</strong> At Ecole Centrale Casablanca, our team led a pioneering project in medical imaging. Focusing on advancing COVID-19 image segmentation, we integrated a 3D GAN and TransUNet, resulting in a novel approach. Rigorously tested on the Mosmed dataset, our model showcased superior results, impacting the broader field of medical imaging. Grateful for the guidance of Oumaima Banouar, our team is proud to contribute to cutting-edge advancements in healthcare.</p>
-                                <p class="mb-2"><strong>Results:</strong> Elevating segmentation performance, crafting synthetic images for unprecedented medical clarity.</p>
-                                <!-- Link to Article -->
-                                <p class="mt-3">
-                                    <a href="https://drive.google.com/file/d/1JGJszgsuYAHdP-zxVQhjpQTzQl-QJwbk/view?usp=sharing" target="_blank" class="font-weight-bold">Visit the article for in-depth insights</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4: Innovation Unleashed -->
-            <!-- Project 4: Innovation Unleashed -->
-            <div class="col-lg-12 mt-5">
-                <div class="project-info mb-4">
-                    <h2 class="font-weight-bold mb-3">Innovation Project</h2>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-md-6 order-md-2">
-                        <img src="img/project4_image.jpg" alt="Innovation Project Image" class="project-image img-fluid mb-3">
-                    </div>
-                    <div class="col-md-6 order-md-1">
-                        <div class="project-details border-left border-primary pt-2 pl-4 ml-2">
-                            <div class="position-relative mb-4">
-                                <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                                <h3 class="font-weight-bold mb-3" style="margin-bottom: 10px;">BERTech Materials: Revolutionizing Supplier Discovery</h3>
-                                <p class="mb-3"><strong>Mission:</strong> BERTech Materials is a pioneering project aimed at revolutionizing communication between suppliers and businesses. Our innovative platform serves as a seamless correspondence interface, enhancing efficiency and effectiveness in B2B and B2C relations. By establishing a marketplace where the exchange of goods and services is smoother and more efficient, we are setting new standards for communication in the industry. Our mission is to create a user-friendly environment that fosters stronger connections and facilitates mutually beneficial transactions. With BERTech Materials, businesses can expect enhanced communication channels that streamline processes and drive success in the marketplace.</p>
-                                <p class="mb-2"><strong>Impact:</strong> Revolutionizing supplier sourcing with heightened efficiency and precision.</p>
-                                <p class="mb-2"><strong>Role:</strong> Orchestrating key contributions, integrating the BERT model with finesse.</p>
-                                <!-- Updated Link to Article/Poster -->
-                                <a href="https://www.canva.com/design/DAF5U_7kR0o/Mzhw4QC1Zk4HS6cO3fsP7w/edit?utm_content=DAF5U_7kR0o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="font-weight-bold">Visit the article for in-depth insights</a>
-                                <!-- MVP Section with Link -->
-                                <p class="mt-3">
-                                    <strong>This is our MVP:</strong> Explore our MVP and discover how it forms the core of our project, showcasing the primary features and the potential for future expansions.
-                                    <a href="https://www.canva.com/design/DAF1wwjFYsE/fH7-Z2z4G1BeGuGzxiiscA/edit?utm_content=DAF1wwjFYsE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="font-weight-bold">View our MVP here.</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-<!-- End Academic Projects Section -->
-
-
-
-
-
-
-
-
-    <!-- Portfolio Start 
-    <div class="container-fluid pt-5 pb-3" id="portfolio">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Gallery</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center mb-2">
-                    <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Design</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Development</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Marketing</li>
+                    <ul>
+                        <li>Architected and deployed secure cloud infrastructure (VPS, firewall, system hardening)</li>
+                        <li>Implemented real-time IoT data pipeline using MQTT broker (Mosquitto)</li>
+                        <li>Designed and optimized PostgreSQL database for high-frequency IoT data ingestion</li>
+                        <li>Developed analytical dashboards: Grafana (infrastructure monitoring) and Python Dashboard (real-time visualization)</li>
+                        <li>Automated ETL pipeline for sensor data transformation and aggregation</li>
                     </ul>
-                </div>
-            </div>
-            <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-1.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+                    <div class="project-tags">
+                        <span class="tag">VPS</span>
+                        <span class="tag">MQTT</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">IoT</span>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-2.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+
+                <div class="experience-item">
+                    <h3>Data Engineer - ETL & Data Pipeline Automation</h3>
+                    <div class="experience-meta">
+                        <i class="fas fa-building"></i> Locacoeur | 
+                        <i class="fas fa-calendar"></i> June 2024 – January 2025 | 
+                        <i class="fas fa-map-marker-alt"></i> Aix-en-Provence, France
+                    </div>
+                    <ul>
+                        <li>Data Migration: Designed ETL pipeline to migrate Excel data to Zoho CRM with automated invoicing and client management</li>
+                        <li>Visual Data Pipeline: Developed automated processing chain including annotation, OCR extraction, and image classification (30% time reduction)</li>
+                        <li>Created data restitution interface for exploiting extracted data (maintenance reports, image metadata)</li>
+                        <li>Optimized data workflows and automated business processes</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Zoho CRM</span>
+                        <span class="tag">ETL</span>
+                        <span class="tag">Deluge</span>
+                        <span class="tag">OCR</span>
+                        <span class="tag">Python</span>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-3.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+
+                <div class="experience-item">
+                    <h3>Machine Learning Intern</h3>
+                    <div class="experience-meta">
+                        <i class="fas fa-building"></i> CodSoft | 
+                        <i class="fas fa-calendar"></i> 2023
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-4.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-4.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-5.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-5.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-6.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-6.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+                    <ul>
+                        <li>Developed sophisticated model for Credit Card Fraud Detection</li>
+                        <li>Created predictive model for Customer Churn Prediction</li>
+                        <li>Built robust SMS Spam Detection system</li>
+                        <li>Implemented Handwritten Text Generation using deep learning</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Deep Learning</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    Portfolio End -->
+    </section>
 
-
-    <!-- Testimonial Start 
-    <div class="container-fluid py-5" id="testimonial">
+    <!-- Projects Section -->
+    <section id="projects">
         <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Review</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Clients Say</h1>
+            <div class="section-title">
+                <h2>Featured Projects</h2>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Multi-Source ETL Platform with Airflow</h3>
+                        <div class="project-tags">
+                            <span class="tag">Apache Airflow</span>
+                            <span class="tag">PySpark</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Docker</span>
                         </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
+                        <p>
+                            Designed automated ETL pipeline for multi-source data ingestion (REST API, CSV, SQL databases). 
+                            Orchestration with Apache Airflow, transformation with PySpark, and loading into PostgreSQL Data Warehouse. 
+                            Integrated monitoring and alerting.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Lakehouse - Medallion Architecture</h3>
+                        <div class="project-tags">
+                            <span class="tag">Apache Kafka</span>
+                            <span class="tag">PySpark</span>
+                            <span class="tag">Delta Lake</span>
+                            <span class="tag">Power BI</span>
                         </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
+                        <p>
+                            Implemented Data Lakehouse architecture (Bronze/Silver/Gold) for massive data processing. 
+                            Real-time streaming pipeline with Kafka, batch transformation with PySpark, and analytical 
+                            layer with Power BI. Data versioning and quality management.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Deep Learning Recommendation System</h3>
+                        <div class="project-tags">
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Neural Networks</span>
+                            <span class="tag">MLflow</span>
                         </div>
+                        <p>
+                            Developed advanced recommendation system using deep neural networks (Collaborative Filtering + 
+                            Content-Based). Implemented embeddings and attention mechanisms for personalization. 
+                            Evaluation with metrics (RMSE, Precision@K, Recall@K).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Smart Traffic Management with YOLO V8</h3>
+                        <div class="project-tags">
+                            <span class="tag">YOLO V8</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <p>
+                            Revolutionized traffic management using YOLO V8 to identify most traversed lanes dynamically. 
+                            Employed advanced image processing to detect and count vehicles, aiming to streamline access 
+                            and improve traffic flow efficiency.
+                        </p>
+                        <a href="https://github.com/mostaphaelansari/Learning-by-doing.git" target="_blank" class="project-link">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Movie Recommender with K-Means Clustering</h3>
+                        <div class="project-tags">
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">K-Means</span>
+                        </div>
+                        <p>
+                            Analyzed MovieLens 100k dataset using K-means clustering algorithm to compute similarity 
+                            of user preferences. Generated personalized movie recommendations based on users' 
+                            similarities with others having similar preferences.
+                        </p>
+                        <a href="https://github.com/mostaphaelansari/data-Analytics-data-science/blob/main/Movie_recommender_systems_using_clustering_based_collaborative_filtering_py.ipynb" target="_blank" class="project-link">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Medical Image Segmentation - TransGAN & TransUNet</h3>
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">GAN</span>
+                            <span class="tag">TransUNet</span>
+                            <span class="tag">Medical Imaging</span>
+                        </div>
+                        <p>
+                            Advanced COVID-19 image segmentation by integrating 3D GAN and TransUNet. 
+                            Rigorously tested on Mosmed dataset, showcasing superior results and impacting 
+                            medical imaging field with cutting-edge healthcare advancements.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1JGJszgsuYAHdP-zxVQhjpQTzQl-QJwbk/view" target="_blank" class="project-link">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>BERTech Materials - AI Supplier Discovery</h3>
+                        <div class="project-tags">
+                            <span class="tag">BERT</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                        <p>
+                            Revolutionary B2B platform using BERT model for intelligent supplier matching. 
+                            Enhanced communication between suppliers and businesses, creating a seamless marketplace 
+                            for efficient goods and services exchange.
+                        </p>
+                        <a href="https://www.canva.com/design/DAF5U_7kR0o/Mzhw4QC1Zk4HS6cO3fsP7w/edit" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Time Series Forecasting with LSTM</h3>
+                        <div class="project-tags">
+                            <span class="tag">LSTM</span>
+                            <span class="tag">Prophet</span>
+                            <span class="tag">ARIMA</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <p>
+                            Developed predictive models for time series forecasting using ARIMA, LSTM, and Prophet. 
+                            Advanced feature engineering, anomaly detection, and statistical validation. 
+                            Deployed with interactive Power BI dashboard.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Credit Card Fraud Detection System</h3>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">XGBoost</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <p>
+                            Developed sophisticated ML model for real-time credit card fraud detection using ensemble 
+                            methods. Implemented feature engineering, class imbalance handling with SMOTE, and model 
+                            optimization. Achieved high precision and recall for financial security enhancement.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Customer Churn Prediction Analytics</h3>
+                        <div class="project-tags">
+                            <span class="tag">Predictive Analytics</span>
+                            <span class="tag">Random Forest</span>
+                            <span class="tag">Logistic Regression</span>
+                        </div>
+                        <p>
+                            Created predictive model to anticipate customer churn using classification algorithms. 
+                            Performed exploratory data analysis, feature importance analysis, and model comparison. 
+                            Significantly improved retention strategies with actionable insights.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>SMS Spam Detection with NLP</h3>
+                        <div class="project-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Text Classification</span>
+                            <span class="tag">TF-IDF</span>
+                            <span class="tag">Naive Bayes</span>
+                        </div>
+                        <p>
+                            Built robust SMS spam detection system using natural language processing techniques. 
+                            Implemented text preprocessing, TF-IDF vectorization, and multiple classification algorithms. 
+                            Optimized customer communication by filtering spam messages effectively.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Handwritten Text Generation with Deep Learning</h3>
+                        <div class="project-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">GANs</span>
+                            <span class="tag">RNN</span>
+                            <span class="tag">TensorFlow</span>
+                        </div>
+                        <p>
+                            Explored handwritten text generation using Generative Adversarial Networks and Recurrent 
+                            Neural Networks. Pushed boundaries of textual creativity by generating realistic handwritten 
+                            text samples with advanced deep learning architectures.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Real-time Object Detection & Classification</h3>
+                        <div class="project-tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">CNN</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">TensorFlow</span>
+                        </div>
+                        <p>
+                            Developed real-time object detection system using Convolutional Neural Networks. 
+                            Implemented transfer learning with pre-trained models, image augmentation, and real-time 
+                            inference optimization for production deployment.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    Testimonial End -->
+    </section>
 
-    <!-- Certificates Start -->
-    <div class="container-fluid pt-5" id="certificates">
+    <!-- Skills Section -->
+    <section id="skills">
         <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Certificates</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Certificates</h1>
+            <div class="section-title">
+                <h2>Technical Skills</h2>
             </div>
-            <div class="row">
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/certificate-1.jpg" alt="Certificate 1">
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Programming & Tools</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <h5 class="font-weight-medium mb-4">Google Project Management</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="#">View Certificate</a>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>SQL</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>R & Bash</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/certificate-2.jpg" alt="Certificate 2">
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-brain"></i> Machine Learning & AI</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Deep Learning</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <h5 class="font-weight-medium mb-4">Machine Learning with Python</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="#">View Certificate</a>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Computer Vision</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>NLP</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/certificate-3.jpg" alt="Certificate 3">
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-database"></i> Data Engineering</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>ETL Pipelines</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <h5 class="font-weight-medium mb-4">Intermediate Machine Learning</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="#">View Certificate</a>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Apache Airflow</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>PySpark</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-user-friends"></i> Soft Skills</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Problem-Solving</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Team Collaboration</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Communication</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-<!-- Certificates End -->
+    </section>
 
-    <!-- Contact Start -->
-    <div class="container-fluid py-5" id="contact">
+    <!-- Contact Section -->
+    <section id="contact">
         <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
+            <div class="section-title">
+                <h2>Get In Touch</h2>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-form text-center">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" action="contact.php" method="post" novalidate="novalidate">
-                            <div class="form-row">
-                                <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your name" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email"
-                                        required="required" data-validation-required-message="Please enter your email" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Subject"
-                                    required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" name="message" placeholder="Message"
-                                    required="required"
-                                    data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Send
-                                    Message</button>
-                            </div>
-                        </form>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p style="margin-bottom: 2rem; line-height: 1.8;">
+                        I'm currently looking for a 6-month internship opportunity in Data Engineering or Data Science. 
+                        Feel free to reach out if you'd like to collaborate!
+                    </p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            mostapha.elansari@outlook.fr
+                        </div>
                     </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +33 7 56 91 85 61
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Location</strong><br>
+                            Casablanca, Morocco
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <strong>LinkedIn</strong><br>
+                            mostapha-el-ansari
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-<!-- Contact End -->
+    </section>
 
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
-        <div class="container text-center py-5">
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="d-flex justify-content-center mb-3">
-                <a class="text-white" href="#">Privacy</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Terms</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">FAQs</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Help</a>
-            </div>
-            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Domain Name</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
-            </p>
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/mostapha-el-ansari" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/mostaphaelansari" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:mostapha.elansari@outlook.fr"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-    </div>
-    <!-- Footer End -->
+        <p>&copy; 2025 Mostapha EL ANSARI. All Rights Reserved.</p>
+    </footer>
 
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
+        // Animate skills on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.parentElement.previousElementSibling.querySelector('span:last-child').textContent;
+                    });
+                }
+            });
+        }, observerOptions);
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+        const skillsSection = document.querySelector('#skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+        // Typing effect
+        const typedTextElement = document.querySelector('.typed-text');
+        const texts = [
+            'Data Engineer & Data Scientist',
+            'Machine Learning Engineer',
+            'IoT Solutions Architect',
+            'ETL Pipeline Developer'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            const typingSpeed = isDeleting ? 50 : 100;
+            setTimeout(type, typingSpeed);
+        }
+
+        type();
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+        });
+    </script>
 </body>
-
 </html>
