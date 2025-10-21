@@ -569,84 +569,344 @@
         resize();
         window.addEventListener('resize', resize);
 
-        // Network structure
-        const layers = [4, 6, 6, 4, 2];
-        const network = [];
-        const neurons = [];
-        const connections = [];
-        
-        // Create network structure
-        const layerSpacing = w / (layers.length + 1);
-        layers.forEach((count, layerIdx) => {
-            const layer = [];
-            const neuronSpacing = h / (count + 1);
-            for (let i = 0; i < count; i++) {
-                const neuron = {
-                    x: layerSpacing * (layerIdx + 1),
-                    y: neuronSpacing * (i + 1),
-                    value: Math.random(),
-                    targetValue: Math.random(),
-                    radius: 8,
-                    layerIdx,
-                    neuronIdx: i
-                };
-                layer.push(neuron);
-                neurons.push(neuron);
-            }
-            network.push(layer);
-        });
-
-        // Create connections
-        for (let l = 0; l < network.length - 1; l++) {
-            for (let i = 0; i < network[l].length; i++) {
-                for (let j = 0; j < network[l + 1].length; j++) {
-                    connections.push({
-                        from: network[l][i],
-                        to: network[l + 1][j],
-                        weight: Math.random() * 2 - 1,
-                        signal: 0
-                    });
+        // Matrix class
+        class Matrix {
+            constructor(rows, cols) {
+                this.rows = rows;
+                this.cols = cols;
+                this.data = [];
+                for (let i = 0; i < rows; i++) {
+                    this.data[i] = [];
+                    for (let j = 0; j < cols; j++) {
+                        this.data[i][j] = Math.random() * 2 - 1;
+                    }
                 }
             }
         }
 
-        // Signal particles
-        const signals = [];
-        class Signal {
-            constructor(conn) {
-                this.conn = conn;
-                this.progress = 0;
-                this.speed = 0.02 + Math.random() * 0.03;
-                this.strength = Math.abs(conn.weight);
+        // Attention head visualization
+        class AttentionHead {
+            constructor(x, y, size) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.attention = new Matrix(4, 4);
+                this.phase = Math.random() * Math.PI * 2;
             }
             
-            update() {
-                this.progress += this.speed;
-                return this.progress >= 1;
+            update(time) {
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        const wave = Math.sin(time * 2 + this.phase + i * 0.5 + j * 0.3);
+                        this.attention.data[i][j] = (wave + 1) / 2;
+                    }
+                }
             }
             
-            draw() {
-                const x = this.conn.from.x + (this.conn.to.x - this.conn.from.x) * this.progress;
-                const y = this.conn.from.y + (this.conn.to.y - this.conn.from.y) * this.progress;
+            draw(ctx, alpha) {
+                const cellSize = this.size / 4;
                 
-                const gradient = ctx.createRadialGradient(x, y, 0, x, y, 10);
-                const alpha = this.strength * (1 - this.progress * 0.5);
-                gradient.addColorStop(0, `rgba(74, 158, 255, ${alpha})`);
-                gradient.addColorStop(1, `rgba(74, 158, 255, 0)`);
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        const val = this.attention.data[i][j];
+                        const x = this.x + j * cellSize;
+                        const y = this.y + i * cellSize;
+                        
+                        const gradient = ctx.createRadialGradient(
+                            x + cellSize/2, y + cellSize/2, 0,
+                            x + cellSize/2, y + cellSize/2, cellSize
+                        );
+                        
+                        const intensity = val * alpha;
+                        gradient.addColorStop(0, `rgba(74, 158, 255, ${intensity * 0.8})`);
+                        gradient.addColorStop(0.5, `rgba(123, 104, 238, ${intensity * 0.5})`);
+                        gradient.addColorStop(1, `rgba(74, 158, 255, ${intensity * 0.2})`);
+                        
+                        ctx.fillStyle = gradient;
+                        ctx.fillRect(x, y, cellSize - 1, cellSize - 1);
+                        
+                        ctx.strokeStyle = `rgba(74, 158, 255, ${alpha * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(x, y, cellSize - 1, cellSize - 1);
+                        
+                        if (val > 0.6) {
+                            ctx.fillStyle = `rgba(255, 255, 255, ${alpha * val})`;
+                            ctx.font = '9px monospace';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(val.toFixed(2), x + cellSize/2, y + cellSize/2);
+                        }
+                    }
+                }
                 
-                ctx.fillStyle = gradient;
-                ctx.beginPath();
-                ctx.arc(x, y, 4, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.fillStyle = `rgba(74, 158, 255, ${alpha})`;
+                ctx.font = 'bold 12px monospace';
+                ctx.textAlign = 'left';
+                ctx.fillText('Attention Matrix', this.x, this.y - 10);
             }
         }
 
-        // Matrix rain effect
-        const matrixChars = '01';
-        const matrixColumns = Math.floor(w / 20);
-        const matrixDrops = [];
-        for (let i = 0; i < matrixColumns; i++) {
-            matrixDrops[i] = Math.random() * h;
+        // Matrix multiplication visualization
+        class MatrixMultViz {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.matrixA = new Matrix(3, 4);
+                this.matrixB = new Matrix(4, 3);
+                this.highlightRow = 0;
+                this.highlightCol = 0;
+                this.animTime = 0;
+            }
+            
+            update(dt) {
+                this.animTime += dt;
+                if (this.animTime > 1.2) {
+                    this.animTime = 0;
+                    this.highlightCol++;
+                    if (this.highlightCol >= 3) {
+                        this.highlightCol = 0;
+                        this.highlightRow++;
+                        if (this.highlightRow >= 3) {
+                            this.highlightRow = 0;
+                        }
+                    }
+                }
+            }
+            
+            draw(ctx, alpha) {
+                const cellSize = 18;
+                const spacing = 35;
+                
+                // Draw Matrix A
+                this.drawMatrix(ctx, this.matrixA, this.x, this.y, cellSize, 
+                    this.highlightRow, -1, alpha, 'A');
+                
+                // Multiplication symbol
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.8})`;
+                ctx.font = 'bold 20px monospace';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('×', this.x + this.matrixA.cols * cellSize + spacing/2, 
+                    this.y + this.matrixA.rows * cellSize / 2);
+                
+                // Draw Matrix B
+                const bX = this.x + this.matrixA.cols * cellSize + spacing;
+                this.drawMatrix(ctx, this.matrixB, bX, this.y, 
+                    cellSize, -1, this.highlightCol, alpha, 'B');
+            }
+            
+            drawMatrix(ctx, matrix, x, y, cellSize, highlightRow, highlightCol, alpha, label) {
+                ctx.fillStyle = `rgba(123, 104, 238, ${alpha * 0.9})`;
+                ctx.font = 'bold 12px monospace';
+                ctx.textAlign = 'left';
+                ctx.fillText(label, x, y - 12);
+                
+                for (let i = 0; i < matrix.rows; i++) {
+                    for (let j = 0; j < matrix.cols; j++) {
+                        const cx = x + j * cellSize;
+                        const cy = y + i * cellSize;
+                        const val = matrix.data[i][j];
+                        
+                        const isHighlighted = (i === highlightRow || j === highlightCol);
+                        const bgAlpha = isHighlighted ? alpha * 0.5 : alpha * 0.15;
+                        
+                        ctx.fillStyle = `rgba(74, 158, 255, ${bgAlpha})`;
+                        ctx.fillRect(cx, cy, cellSize - 2, cellSize - 2);
+                        
+                        ctx.strokeStyle = `rgba(74, 158, 255, ${alpha * 0.6})`;
+                        ctx.lineWidth = isHighlighted ? 2 : 1;
+                        ctx.strokeRect(cx, cy, cellSize - 2, cellSize - 2);
+                        
+                        ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.7})`;
+                        ctx.font = '8px monospace';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(val.toFixed(1), cx + cellSize/2, cy + cellSize/2);
+                    }
+                }
+            }
+        }
+
+        // Neural network with backprop
+        class NeuralNetViz {
+            constructor(x, y, layers) {
+                this.x = x;
+                this.y = y;
+                this.layers = layers;
+                this.neurons = [];
+                this.connections = [];
+                this.setupNetwork();
+            }
+            
+            setupNetwork() {
+                const layerSpacing = 100;
+                const neuronSpacing = 35;
+                
+                this.layers.forEach((count, layerIdx) => {
+                    const layer = [];
+                    const startY = this.y - (count * neuronSpacing) / 2;
+                    
+                    for (let i = 0; i < count; i++) {
+                        layer.push({
+                            x: this.x + layerIdx * layerSpacing,
+                            y: startY + i * neuronSpacing,
+                            value: Math.random(),
+                            gradient: 0,
+                            radius: 7
+                        });
+                    }
+                    this.neurons.push(layer);
+                });
+                
+                for (let l = 0; l < this.neurons.length - 1; l++) {
+                    for (let i = 0; i < this.neurons[l].length; i++) {
+                        for (let j = 0; j < this.neurons[l + 1].length; j++) {
+                            this.connections.push({
+                                from: this.neurons[l][i],
+                                to: this.neurons[l + 1][j],
+                                weight: Math.random() * 2 - 1
+                            });
+                        }
+                    }
+                }
+            }
+            
+            update(time) {
+                this.neurons.forEach((layer, l) => {
+                    layer.forEach((n, i) => {
+                        n.value = (Math.sin(time * 2 + l * 0.5 + i * 0.3) + 1) / 2;
+                        n.gradient = (Math.sin(time * 2.5 - l * 0.5 - i * 0.3) + 1) / 2;
+                    });
+                });
+            }
+            
+            draw(ctx, alpha) {
+                // Draw connections
+                this.connections.forEach(conn => {
+                    const gradient = ctx.createLinearGradient(
+                        conn.from.x, conn.from.y,
+                        conn.to.x, conn.to.y
+                    );
+                    
+                    const intensity = (conn.from.value + conn.to.value) / 2;
+                    const gradIntensity = (conn.from.gradient + conn.to.gradient) / 2;
+                    
+                    gradient.addColorStop(0, `rgba(74, 158, 255, ${alpha * intensity * 0.25})`);
+                    gradient.addColorStop(0.5, `rgba(255, 107, 157, ${alpha * gradIntensity * 0.25})`);
+                    gradient.addColorStop(1, `rgba(74, 158, 255, ${alpha * intensity * 0.25})`);
+                    
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = Math.abs(conn.weight) * 1.2;
+                    ctx.beginPath();
+                    ctx.moveTo(conn.from.x, conn.from.y);
+                    ctx.lineTo(conn.to.x, conn.to.y);
+                    ctx.stroke();
+                });
+                
+                // Draw neurons
+                this.neurons.forEach((layer, l) => {
+                    layer.forEach(n => {
+                        // Forward pass glow (blue)
+                        const fwdGradient = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.radius * 2.5);
+                        fwdGradient.addColorStop(0, `rgba(74, 158, 255, ${alpha * n.value * 0.6})`);
+                        fwdGradient.addColorStop(1, 'rgba(74, 158, 255, 0)');
+                        ctx.fillStyle = fwdGradient;
+                        ctx.beginPath();
+                        ctx.arc(n.x, n.y, n.radius * 2.5, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        // Backprop glow (pink)
+                        const bwdGradient = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.radius * 2.5);
+                        bwdGradient.addColorStop(0, `rgba(255, 107, 157, ${alpha * n.gradient * 0.6})`);
+                        bwdGradient.addColorStop(1, 'rgba(255, 107, 157, 0)');
+                        ctx.fillStyle = bwdGradient;
+                        ctx.beginPath();
+                        ctx.arc(n.x, n.y, n.radius * 2.5, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        // Neuron body
+                        ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.9})`;
+                        ctx.beginPath();
+                        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        ctx.strokeStyle = `rgba(74, 158, 255, ${alpha * 0.8})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+                    });
+                });
+                
+                // Draw labels
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.7})`;
+                ctx.font = '10px monospace';
+                ctx.textAlign = 'center';
+                const labels = ['Input', 'Hidden', 'Hidden', 'Output'];
+                this.neurons.forEach((layer, l) => {
+                    if (labels[l]) {
+                        ctx.fillText(labels[l], 
+                            this.x + l * 100, 
+                            this.y + (layer.length * 35) / 2 + 25);
+                    }
+                });
+            }
+        }
+
+        // Floating equation particles
+        class EquationParticle {
+            constructor() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.equations = [
+                    'softmax(QK^T)',
+                    '∂L/∂w',
+                    'σ(Wx+b)',
+                    'ReLU(x)',
+                    'Attention',
+                    '∇θ',
+                    'y=Wx+b',
+                    'J(θ)',
+                    'Q·K^T/√d',
+                    'BP',
+                    'FP'
+                ];
+                this.equation = this.equations[Math.floor(Math.random() * this.equations.length)];
+                this.life = 1;
+                this.maxLife = 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life -= 0.001;
+                
+                if (this.x < 0 || this.x > w) this.vx *= -1;
+                if (this.y < 0 || this.y > h) this.vy *= -1;
+                
+                return this.life > 0;
+            }
+            
+            draw(ctx, alpha) {
+                ctx.fillStyle = `rgba(123, 104, 238, ${alpha * this.life * 0.35})`;
+                ctx.font = '11px monospace';
+                ctx.textAlign = 'center';
+                ctx.fillText(this.equation, this.x, this.y);
+            }
+        }
+
+        // Initialize visualizations
+        const attentionHeads = [
+            new AttentionHead(w * 0.12, h * 0.15, 100),
+            new AttentionHead(w * 0.12, h * 0.62, 100)
+        ];
+        
+        const matrixMult = new MatrixMultViz(w * 0.58, h * 0.18);
+        const neuralNet = new NeuralNetViz(w * 0.35, h * 0.68, [3, 4, 4, 2]);
+        const equations = [];
+        
+        for (let i = 0; i < 25; i++) {
+            equations.push(new EquationParticle());
         }
 
         let mouseX = w / 2;
@@ -662,113 +922,68 @@
         });
 
         let time = 0;
-        function animate() {
+        let lastTime = 0;
+        
+        function animate(currentTime) {
+            const dt = (currentTime - lastTime) / 1000;
+            lastTime = currentTime;
             time += 0.016;
             
-            // Clear with fade effect
-            ctx.fillStyle = 'rgba(10, 10, 15, 0.15)';
+            // Clear with fade
+            ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
             ctx.fillRect(0, 0, w, h);
-
-            // Matrix rain (subtle)
-            ctx.fillStyle = 'rgba(74, 158, 255, 0.05)';
-            ctx.font = '12px monospace';
-            for (let i = 0; i < matrixDrops.length; i++) {
-                const char = matrixChars[Math.floor(Math.random() * matrixChars.length)];
-                ctx.fillText(char, i * 20, matrixDrops[i]);
-                
-                if (matrixDrops[i] > h && Math.random() > 0.99) {
-                    matrixDrops[i] = 0;
-                }
-                matrixDrops[i] += 2;
-            }
-
-            // Update neuron values (wave effect)
-            neurons.forEach((n, idx) => {
-                const wave = Math.sin(time * 2 + n.layerIdx + n.neuronIdx * 0.5) * 0.5 + 0.5;
-                n.targetValue = wave;
-                n.value += (n.targetValue - n.value) * 0.1;
-                
-                // Mouse influence
-                const dx = mouseX - n.x;
-                const dy = mouseY - n.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 150) {
-                    n.value = Math.min(1, n.value + (1 - dist / 150) * 0.3);
-                }
+            
+            // Calculate opacity based on scroll
+            const scrollProgress = Math.min(scrollY / window.innerHeight, 1);
+            const baseAlpha = Math.max(0.2, 1 - scrollProgress * 0.7);
+            
+            // Update and draw attention heads
+            attentionHeads.forEach(head => {
+                head.update(time);
+                head.draw(ctx, baseAlpha * 0.75);
             });
-
-            // Draw connections
-            connections.forEach(conn => {
-                const gradient = ctx.createLinearGradient(
-                    conn.from.x, conn.from.y,
-                    conn.to.x, conn.to.y
-                );
-                
-                const alpha = Math.abs(conn.weight) * 0.15 * (conn.from.value + conn.to.value) / 2;
-                const color = conn.weight > 0 ? '74, 158, 255' : '123, 104, 238';
-                
-                gradient.addColorStop(0, `rgba(${color}, ${alpha})`);
-                gradient.addColorStop(1, `rgba(${color}, ${alpha * 0.5})`);
-                
-                ctx.strokeStyle = gradient;
-                ctx.lineWidth = Math.abs(conn.weight) * 2;
-                ctx.beginPath();
-                ctx.moveTo(conn.from.x, conn.from.y);
-                ctx.lineTo(conn.to.x, conn.to.y);
-                ctx.stroke();
-            });
-
-            // Spawn signals
-            if (Math.random() < 0.05) {
-                const conn = connections[Math.floor(Math.random() * connections.length)];
-                signals.push(new Signal(conn));
-            }
-
-            // Update and draw signals
-            for (let i = signals.length - 1; i >= 0; i--) {
-                if (signals[i].update()) {
-                    signals.splice(i, 1);
+            
+            // Update and draw matrix multiplication
+            matrixMult.update(dt);
+            matrixMult.draw(ctx, baseAlpha * 0.7);
+            
+            // Update and draw neural network
+            neuralNet.update(time);
+            neuralNet.draw(ctx, baseAlpha * 0.75);
+            
+            // Update and draw equations
+            for (let i = equations.length - 1; i >= 0; i--) {
+                if (!equations[i].update()) {
+                    equations.splice(i, 1);
+                    equations.push(new EquationParticle());
                 } else {
-                    signals[i].draw();
+                    equations[i].draw(ctx, baseAlpha);
                 }
             }
-
-            // Draw neurons
-            neurons.forEach(n => {
-                // Outer glow
-                const gradient = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.radius * 3);
-                gradient.addColorStop(0, `rgba(74, 158, 255, ${n.value * 0.4})`);
-                gradient.addColorStop(1, 'rgba(74, 158, 255, 0)');
-                ctx.fillStyle = gradient;
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.radius * 3, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Neuron body
-                ctx.fillStyle = `rgba(74, 158, 255, ${0.3 + n.value * 0.7})`;
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Inner highlight
-                ctx.fillStyle = `rgba(255, 255, 255, ${n.value * 0.6})`;
-                ctx.beginPath();
-                ctx.arc(n.x - 2, n.y - 2, n.radius * 0.4, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Value text
-                if (n.value > 0.7) {
-                    ctx.fillStyle = `rgba(255, 255, 255, ${(n.value - 0.7) * 2})`;
-                    ctx.font = '10px monospace';
-                    ctx.textAlign = 'center';
-                    ctx.fillText(n.value.toFixed(2), n.x, n.y - n.radius - 8);
-                }
-            });
-
+            
+            // Draw connecting lines
+            ctx.strokeStyle = `rgba(74, 158, 255, ${baseAlpha * 0.08})`;
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(attentionHeads[0].x + 50, attentionHeads[0].y + 50);
+            ctx.lineTo(neuralNet.x - 30, neuralNet.y - 80);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Title annotations
+            ctx.fillStyle = `rgba(255, 255, 255, ${baseAlpha * 0.5})`;
+            ctx.font = '10px monospace';
+            ctx.textAlign = 'left';
+            ctx.fillText('Transformer Attention', attentionHeads[0].x, attentionHeads[0].y - 20);
+            ctx.fillText('Multi-Head Attention', attentionHeads[1].x, attentionHeads[1].y - 20);
+            ctx.fillText('Matrix Operations', matrixMult.x, matrixMult.y - 25);
+            ctx.fillText('Forward & Backprop', neuralNet.x - 45, neuralNet.y - 100);
+            
             requestAnimationFrame(animate);
         }
         
-        animate();
+        animate(0);
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
