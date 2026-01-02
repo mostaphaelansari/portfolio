@@ -3294,7 +3294,6 @@
             transform: translateY(0);
         }
 
-        /* Particle Background */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -3302,6 +3301,247 @@
             top: 0;
             left: 0;
             z-index: -1;
+        }
+
+        /* Certificates Gallery Section */
+        .certificates-section {
+            padding: 8rem 3rem;
+            background: var(--dark);
+        }
+
+        .certificates-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .certificate-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(124, 58, 237, 0.4);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2), 0 0 60px rgba(124, 58, 237, 0.1);
+        }
+
+        .certificate-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .certificate-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover .certificate-image-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .certificate-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(124, 58, 237, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .certificate-card:hover .certificate-overlay {
+            opacity: 1;
+        }
+
+        .certificate-overlay i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .certificate-overlay span {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .certificate-info {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .certificate-badge {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .certificate-badge.huggingface {
+            background: linear-gradient(135deg, #ff7c00 0%, #ffb800 100%);
+        }
+
+        .certificate-badge.other {
+            background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
+        }
+
+        .certificate-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 0.3rem;
+        }
+
+        .certificate-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .certificate-card.add-certificate {
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            background: transparent;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certificate-card.add-certificate:hover {
+            border-color: rgba(124, 58, 237, 0.5);
+            background: rgba(124, 58, 237, 0.05);
+            transform: none;
+            box-shadow: none;
+        }
+
+        .add-certificate-content {
+            text-align: center;
+            color: var(--gray);
+        }
+
+        .add-certificate-content i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .add-certificate-content p {
+            font-size: 1rem;
+        }
+
+        /* Certificate Modal */
+        .certificate-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10003;
+            padding: 2rem;
+        }
+
+        .certificate-modal.active {
+            display: flex;
+        }
+
+        .certificate-modal-content {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            animation: modalZoomIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalZoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .certificate-modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-modal-content h3 {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        .certificate-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-modal-close:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .certificates-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .certificates-section {
+                padding: 5rem 2rem;
+            }
         }
     </style>
 </head>
@@ -3347,6 +3587,7 @@
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#education">Formation</a></li>
+                <li><a href="#certificates">Certificats</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 1rem;">
@@ -5642,6 +5883,38 @@
         // Initialize blogs on page load
         initializeDefaultBlogs();
         renderBlogs();
+
+        // Certificate Modal Functions
+        function openCertificateModal(imageSrc, title) {
+            const modal = document.getElementById('certificateModal');
+            const image = document.getElementById('certificateModalImage');
+            const titleElement = document.getElementById('certificateModalTitle');
+
+            image.src = imageSrc;
+            titleElement.textContent = title;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertificateModal() {
+            const modal = document.getElementById('certificateModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close certificate modal when clicking outside
+        document.getElementById('certificateModal').addEventListener('click', (e) => {
+            if (e.target.id === 'certificateModal') {
+                closeCertificateModal();
+            }
+        });
+
+        // Close certificate modal with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('certificateModal').classList.contains('active')) {
+                closeCertificateModal();
+            }
+        });
     </script>
 </body>
 
