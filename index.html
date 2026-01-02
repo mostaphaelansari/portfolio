@@ -47,44 +47,38 @@
         }
 
         :root {
-            /* Cutting-Edge Color Palette */
-            --primary: #7c3aed;
-            --primary-light: #a78bfa;
-            --primary-dark: #5b21b6;
-            --secondary: #ec4899;
-            --accent: #06b6d4;
-            --accent-2: #22d3ee;
-            --neon-green: #10b981;
-            --neon-blue: #3b82f6;
-            --neon-purple: #8b5cf6;
-            --neon-pink: #f472b6;
+            /* Professional Color Palette - White & Blue */
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e40af;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --accent-2: #60a5fa;
 
             /* Dark Theme Colors */
-            --dark: #050505;
-            --dark-2: #0a0a0f;
-            --dark-3: #111118;
-            --dark-4: #1a1a24;
-            --light: #fafafa;
-            --gray: #71717a;
-            --gray-light: #a1a1aa;
+            --dark: #ffffff;
+            --dark-2: #f8fafc;
+            --dark-3: #f1f5f9;
+            --dark-4: #e2e8f0;
+            --light: #1e293b;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
 
             /* Status Colors */
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
 
-            /* Cutting-Edge Gradients */
-            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #06b6d4 100%);
-            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --gradient-text: linear-gradient(90deg, #7c3aed, #ec4899, #06b6d4, #7c3aed);
-            --gradient-glow: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+            /* Professional Gradients - Simple Blue */
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            --gradient-hero: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            --gradient-text: linear-gradient(90deg, #2563eb, #3b82f6);
+            --gradient-glow: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
             --gradient-mesh:
-                radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.3) 0px, transparent 50%),
-                radial-gradient(at 80% 0%, rgba(236, 72, 153, 0.2) 0px, transparent 50%),
-                radial-gradient(at 0% 50%, rgba(6, 182, 212, 0.2) 0px, transparent 50%),
-                radial-gradient(at 80% 50%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+                radial-gradient(at 40% 20%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, rgba(59, 130, 246, 0.03) 0px, transparent 50%);
 
             /* Glassmorphism */
             --glass-bg: rgba(255, 255, 255, 0.03);
@@ -95,9 +89,9 @@
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
             --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.4);
-            --shadow-glow-primary: 0 0 60px rgba(124, 58, 237, 0.4);
-            --shadow-glow-secondary: 0 0 60px rgba(236, 72, 153, 0.3);
-            --shadow-glow-accent: 0 0 60px rgba(6, 182, 212, 0.3);
+            --shadow-glow-primary: 0 0 40px rgba(37, 99, 235, 0.2);
+            --shadow-glow-secondary: 0 0 40px rgba(37, 99, 235, 0.15);
+            --shadow-glow-accent: 0 0 40px rgba(59, 130, 246, 0.15);
 
             /* Border Radius */
             --radius-sm: 8px;
@@ -108,12 +102,12 @@
         }
 
         [data-theme="light"] {
-            --dark: #fafafa;
-            --dark-2: #f4f4f5;
-            --dark-3: #e4e4e7;
-            --dark-4: #d4d4d8;
-            --light: #09090b;
-            --gray: #52525b;
+            --dark: #f8fafc;
+            --dark-2: #f1f5f9;
+            --dark-3: #e2e8f0;
+            --dark-4: #cbd5e1;
+            --light: #1e293b;
+            --gray: #475569;
             --glass-bg: rgba(0, 0, 0, 0.02);
             --glass-border: rgba(0, 0, 0, 0.06);
         }
@@ -164,7 +158,7 @@
             background: var(--gradient-primary);
             z-index: 10001;
             transition: width 0.1s ease;
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.8), 0 0 40px rgba(236, 72, 153, 0.5);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3), 0 0 40px rgba(37, 99, 235, 0.2);
         }
 
         /* Subtle Noise Texture */
@@ -186,7 +180,7 @@
             position: fixed;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
             z-index: 1;
@@ -3543,6 +3537,113 @@
                 padding: 5rem 2rem;
             }
         }
+
+        /* Certificate Admin Form Styles */
+        .certificate-admin-form {
+            background: var(--dark-2);
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-lg);
+            animation: modalZoomIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .certificate-admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-admin-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .certificate-admin-header .certificate-modal-close {
+            position: static;
+        }
+
+        #certificatePlatform {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--light);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #certificatePlatform option {
+            background: var(--dark-2);
+            color: var(--light);
+        }
+
+        /* Certificate Card Edit Button */
+        .certificate-edit-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 36px;
+            height: 36px;
+            background: rgba(124, 58, 237, 0.9);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-card:hover .certificate-edit-btn {
+            opacity: 1;
+        }
+
+        .certificate-edit-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .certificate-delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 52px;
+            width: 36px;
+            height: 36px;
+            background: rgba(239, 68, 68, 0.9);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-card:hover .certificate-delete-btn {
+            opacity: 1;
+        }
+
+        .certificate-delete-btn:hover {
+            background: #dc2626;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -4629,76 +4730,13 @@
                 </p>
             </div>
 
-            <div class="certificates-gallery">
-                <!-- Certificate 1 - DataCamp -->
-                <div class="certificate-card reveal"
-                    onclick="openCertificateModal('img/certificate-1.jpg', 'DataCamp - Data Science Certificate')">
-                    <div class="certificate-image-wrapper">
-                        <img src="img/certificate-1.jpg" alt="DataCamp Certificate" loading="lazy">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>Voir le certificat</span>
-                        </div>
-                    </div>
-                    <div class="certificate-info">
-                        <div class="certificate-badge">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h3>DataCamp Certificate</h3>
-                        <p>Data Science</p>
-                    </div>
-                </div>
-
-                <!-- Certificate 2 - Hugging Face -->
-                <div class="certificate-card reveal"
-                    onclick="openCertificateModal('img/certificate-2.jpg', 'Hugging Face - NLP Certificate')">
-                    <div class="certificate-image-wrapper">
-                        <img src="img/certificate-2.jpg" alt="Hugging Face Certificate" loading="lazy">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>Voir le certificat</span>
-                        </div>
-                    </div>
-                    <div class="certificate-info">
-                        <div class="certificate-badge huggingface">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Hugging Face Certificate</h3>
-                        <p>NLP & Transformers</p>
-                    </div>
-                </div>
-
-                <!-- Certificate 3 -->
-                <div class="certificate-card reveal"
-                    onclick="openCertificateModal('img/certificate-3.jpg', 'Professional Certificate')">
-                    <div class="certificate-image-wrapper">
-                        <img src="img/certificate-3.jpg" alt="Professional Certificate" loading="lazy">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>Voir le certificat</span>
-                        </div>
-                    </div>
-                    <div class="certificate-info">
-                        <div class="certificate-badge other">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3>Professional Certificate</h3>
-                        <p>Machine Learning</p>
-                    </div>
-                </div>
-
-                <!-- Placeholder for more certificates -->
-                <div class="certificate-card add-certificate reveal">
-                    <div class="add-certificate-content">
-                        <i class="fas fa-plus-circle"></i>
-                        <p>Plus de certificats à venir...</p>
-                    </div>
-                </div>
+            <div class="certificates-gallery" id="certificatesGallery">
+                <!-- Certificates are loaded dynamically from JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Certificate Modal -->
+    <!-- Certificate Modal (View) -->
     <div class="certificate-modal" id="certificateModal">
         <div class="certificate-modal-content">
             <button class="certificate-modal-close" onclick="closeCertificateModal()">
@@ -4706,6 +4744,54 @@
             </button>
             <img id="certificateModalImage" src="" alt="Certificate">
             <h3 id="certificateModalTitle"></h3>
+        </div>
+    </div>
+
+    <!-- Certificate Admin Modal (Add/Edit) -->
+    <div class="certificate-modal" id="certificateAdminModal">
+        <div class="certificate-admin-form">
+            <div class="certificate-admin-header">
+                <h3 id="certificateFormTitle">Ajouter un Certificat</h3>
+                <button class="certificate-modal-close" onclick="closeCertificateAdminModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="certificateForm">
+                <input type="hidden" id="certificateEditId">
+                <div class="form-group">
+                    <label>Titre du Certificat *</label>
+                    <input type="text" id="certificateTitle" placeholder="Ex: DataCamp - Data Science" required>
+                </div>
+                <div class="form-group">
+                    <label>Catégorie *</label>
+                    <input type="text" id="certificateCategory" placeholder="Ex: Data Science, NLP, Machine Learning">
+                </div>
+                <div class="form-group">
+                    <label>Plateforme / Organisation *</label>
+                    <select id="certificatePlatform">
+                        <option value="datacamp">DataCamp</option>
+                        <option value="huggingface">Hugging Face</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>URL de l'image du certificat *</label>
+                    <input type="text" id="certificateImage" placeholder="img/certificate-new.jpg ou URL externe">
+                    <small style="color: var(--gray); font-size: 0.8rem;">
+                        Placez votre image dans le dossier 'img/' ou utilisez une URL externe
+                    </small>
+                </div>
+                <div class="form-group" style="display: flex; gap: 1rem;">
+                    <button type="submit" class="submit-btn" style="flex: 1;">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                    <button type="button" class="submit-btn"
+                        style="flex: 1; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);"
+                        onclick="closeCertificateAdminModal()">
+                        <i class="fas fa-times"></i> Annuler
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -5884,7 +5970,112 @@
         initializeDefaultBlogs();
         renderBlogs();
 
-        // Certificate Modal Functions
+        // ========================================
+        // CERTIFICATES MANAGEMENT SYSTEM
+        // ========================================
+
+        // Default certificates data
+        const defaultCertificates = [
+            {
+                id: 1,
+                title: 'DataCamp - Data Science Certificate',
+                category: 'Data Science',
+                platform: 'datacamp',
+                image: 'img/certificate-1.jpg'
+            },
+            {
+                id: 2,
+                title: 'Hugging Face - NLP Certificate',
+                category: 'NLP & Transformers',
+                platform: 'huggingface',
+                image: 'img/certificate-2.jpg'
+            },
+            {
+                id: 3,
+                title: 'Professional Certificate',
+                category: 'Machine Learning',
+                platform: 'other',
+                image: 'img/certificate-3.jpg'
+            }
+        ];
+
+        // Get certificates from localStorage or use defaults
+        function getCertificates() {
+            const stored = localStorage.getItem('portfolioCertificates');
+            if (stored) {
+                return JSON.parse(stored);
+            }
+            // Initialize with defaults
+            saveCertificates(defaultCertificates);
+            return defaultCertificates;
+        }
+
+        // Save certificates to localStorage
+        function saveCertificates(certificates) {
+            localStorage.setItem('portfolioCertificates', JSON.stringify(certificates));
+        }
+
+        // Get platform display name and badge class
+        function getPlatformInfo(platform) {
+            const platforms = {
+                'datacamp': { name: 'DataCamp', badgeClass: '', icon: 'fa-certificate' },
+                'huggingface': { name: 'Hugging Face', badgeClass: 'huggingface', icon: 'fa-robot' },
+                'other': { name: 'Certificate', badgeClass: 'other', icon: 'fa-award' }
+            };
+            return platforms[platform] || platforms['other'];
+        }
+
+        // Render all certificates
+        function renderCertificates() {
+            const container = document.getElementById('certificatesGallery');
+            const certificates = getCertificates();
+
+            let html = '';
+
+            certificates.forEach(cert => {
+                const platformInfo = getPlatformInfo(cert.platform);
+                html += `
+                    <div class="certificate-card reveal active" data-id="${cert.id}">
+                        <button class="certificate-delete-btn" onclick="event.stopPropagation(); deleteCertificate(${cert.id})" title="Supprimer">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="certificate-edit-btn" onclick="event.stopPropagation(); editCertificate(${cert.id})" title="Modifier">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <div class="certificate-image-wrapper" onclick="openCertificateModal('${cert.image}', '${cert.title.replace(/'/g, "\\'")}')">
+                            <img src="${cert.image}" alt="${cert.title}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%236366f1%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%22150%22 y=%22100%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2216%22%3ECertificate%3C/text%3E%3C/svg%3E'">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Voir le certificat</span>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <div class="certificate-badge ${platformInfo.badgeClass}">
+                                <i class="fas ${platformInfo.icon}"></i>
+                            </div>
+                            <div>
+                                <h3>${cert.title}</h3>
+                                <p>${cert.category}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Add the "Add Certificate" card
+            html += `
+                <div class="certificate-card add-certificate reveal active" onclick="openAddCertificateModal()">
+                    <div class="add-certificate-content">
+                        <i class="fas fa-plus-circle"></i>
+                        <p>Ajouter un certificat</p>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Open modal to view certificate
         function openCertificateModal(imageSrc, title) {
             const modal = document.getElementById('certificateModal');
             const image = document.getElementById('certificateModalImage');
@@ -5902,19 +6093,129 @@
             document.body.style.overflow = '';
         }
 
-        // Close certificate modal when clicking outside
+        // Open modal to add new certificate
+        function openAddCertificateModal() {
+            document.getElementById('certificateFormTitle').textContent = 'Ajouter un Certificat';
+            document.getElementById('certificateEditId').value = '';
+            document.getElementById('certificateTitle').value = '';
+            document.getElementById('certificateCategory').value = '';
+            document.getElementById('certificatePlatform').value = 'datacamp';
+            document.getElementById('certificateImage').value = '';
+
+            document.getElementById('certificateAdminModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Open modal to edit existing certificate
+        function editCertificate(id) {
+            const certificates = getCertificates();
+            const cert = certificates.find(c => c.id === id);
+
+            if (!cert) return;
+
+            document.getElementById('certificateFormTitle').textContent = 'Modifier le Certificat';
+            document.getElementById('certificateEditId').value = id;
+            document.getElementById('certificateTitle').value = cert.title;
+            document.getElementById('certificateCategory').value = cert.category;
+            document.getElementById('certificatePlatform').value = cert.platform;
+            document.getElementById('certificateImage').value = cert.image;
+
+            document.getElementById('certificateAdminModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close admin modal
+        function closeCertificateAdminModal() {
+            document.getElementById('certificateAdminModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Delete certificate
+        function deleteCertificate(id) {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer ce certificat ?')) return;
+
+            let certificates = getCertificates();
+            certificates = certificates.filter(c => c.id !== id);
+            saveCertificates(certificates);
+            renderCertificates();
+        }
+
+        // Handle form submission (add/edit)
+        document.getElementById('certificateForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const editId = document.getElementById('certificateEditId').value;
+            const title = document.getElementById('certificateTitle').value;
+            const category = document.getElementById('certificateCategory').value;
+            const platform = document.getElementById('certificatePlatform').value;
+            const image = document.getElementById('certificateImage').value;
+
+            if (!title || !image) {
+                alert('Veuillez remplir le titre et l\'URL de l\'image.');
+                return;
+            }
+
+            let certificates = getCertificates();
+
+            if (editId) {
+                // Update existing certificate
+                const index = certificates.findIndex(c => c.id === parseInt(editId));
+                if (index !== -1) {
+                    certificates[index] = {
+                        id: parseInt(editId),
+                        title,
+                        category: category || 'Certificate',
+                        platform,
+                        image
+                    };
+                }
+            } else {
+                // Add new certificate
+                const newId = Math.max(...certificates.map(c => c.id), 0) + 1;
+                certificates.push({
+                    id: newId,
+                    title,
+                    category: category || 'Certificate',
+                    platform,
+                    image
+                });
+            }
+
+            saveCertificates(certificates);
+            renderCertificates();
+            closeCertificateAdminModal();
+
+            alert(editId ? 'Certificat modifié avec succès!' : 'Certificat ajouté avec succès!');
+        });
+
+        // Close view modal when clicking outside
         document.getElementById('certificateModal').addEventListener('click', (e) => {
             if (e.target.id === 'certificateModal') {
                 closeCertificateModal();
             }
         });
 
-        // Close certificate modal with ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('certificateModal').classList.contains('active')) {
-                closeCertificateModal();
+        // Close admin modal when clicking outside
+        document.getElementById('certificateAdminModal').addEventListener('click', (e) => {
+            if (e.target.id === 'certificateAdminModal') {
+                closeCertificateAdminModal();
             }
         });
+
+        // Close modals with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (document.getElementById('certificateModal').classList.contains('active')) {
+                    closeCertificateModal();
+                }
+                if (document.getElementById('certificateAdminModal').classList.contains('active')) {
+                    closeCertificateAdminModal();
+                }
+            }
+        });
+
+        // Initialize certificates on page load
+        renderCertificates();
     </script>
 </body>
 
