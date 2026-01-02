@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostapha EL ANSARI - Data Scientist & AI Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <title>Mostapha EL ANSARI - Data Scientist & AI Engineer | Machine Learning Expert</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Data Scientist & AI Engineer specializing in Machine Learning, Deep Learning, Computer Vision, and NLP. Available for internships and collaborations. Based in Marseille, France.">
+    <meta name="keywords"
+        content="Data Scientist, Machine Learning, Deep Learning, AI Engineer, Python, TensorFlow, PyTorch, NLP, Computer Vision, Marseille, France">
+    <meta name="author" content="Mostapha EL ANSARI">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mostaphaelansari.github.io/portfolio/">
+    <meta property="og:title" content="Mostapha EL ANSARI - Data Scientist & AI Engineer">
+    <meta property="og:description"
+        content="Passionate Data Scientist specializing in Machine Learning, Deep Learning, and AI. Explore my projects and let's collaborate!">
+    <meta property="og:image" content="img/portfolio-1.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mostaphaelansari.github.io/portfolio/">
+    <meta name="twitter:title" content="Mostapha EL ANSARI - Data Scientist & AI Engineer">
+    <meta name="twitter:description"
+        content="Passionate Data Scientist specializing in Machine Learning, Deep Learning, and AI.">
+    <meta name="twitter:image" content="img/portfolio-1.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mostaphaelansari.github.io/portfolio/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -14,31 +47,75 @@
         }
 
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
+            /* Cutting-Edge Color Palette */
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-dark: #5b21b6;
+            --secondary: #ec4899;
             --accent: #06b6d4;
-            --dark: #0a0a0f;
-            --dark-2: #131318;
-            --dark-3: #1e1e28;
-            --light: #f8fafc;
-            --gray: #94a3b8;
+            --accent-2: #22d3ee;
+            --neon-green: #10b981;
+            --neon-blue: #3b82f6;
+            --neon-purple: #8b5cf6;
+            --neon-pink: #f472b6;
+
+            /* Dark Theme Colors */
+            --dark: #050505;
+            --dark-2: #0a0a0f;
+            --dark-3: #111118;
+            --dark-4: #1a1a24;
+            --light: #fafafa;
+            --gray: #71717a;
+            --gray-light: #a1a1aa;
+
+            /* Status Colors */
             --success: #10b981;
             --warning: #f59e0b;
-            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.2);
-            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
+            --error: #ef4444;
+
+            /* Cutting-Edge Gradients */
+            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #06b6d4 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-text: linear-gradient(90deg, #7c3aed, #ec4899, #06b6d4, #7c3aed);
+            --gradient-glow: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+            --gradient-mesh:
+                radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.3) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, rgba(236, 72, 153, 0.2) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, rgba(6, 182, 212, 0.2) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+            /* Advanced Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.4);
+            --shadow-glow-primary: 0 0 60px rgba(124, 58, 237, 0.4);
+            --shadow-glow-secondary: 0 0 60px rgba(236, 72, 153, 0.3);
+            --shadow-glow-accent: 0 0 60px rgba(6, 182, 212, 0.3);
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-2xl: 48px;
         }
 
         [data-theme="light"] {
-            --dark: #f8fafc;
-            --dark-2: #f1f5f9;
-            --dark-3: #e2e8f0;
-            --light: #0a0a0f;
-            --gray: #475569;
+            --dark: #fafafa;
+            --dark-2: #f4f4f5;
+            --dark-3: #e4e4e7;
+            --dark-4: #d4d4d8;
+            --light: #09090b;
+            --gray: #52525b;
+            --glass-bg: rgba(0, 0, 0, 0.02);
+            --glass-border: rgba(0, 0, 0, 0.06);
         }
 
         body {
@@ -46,7 +123,692 @@
             background: var(--dark);
             color: var(--light);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* Gradient Mesh Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-mesh);
+            pointer-events: none;
+            z-index: -1;
+            animation: meshFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes meshFloat {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Animated Scroll Progress with Glow */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 10001;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.8), 0 0 40px rgba(236, 72, 153, 0.5);
+        }
+
+        /* Subtle Noise Texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.015;
+            pointer-events: none;
+            z-index: 10002;
+        }
+
+        /* Cursor Spotlight Effect */
+        .cursor-spotlight {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Page Entry Animation */
+        .page-transition {
+            animation: pageEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+                filter: blur(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* Animated Gradient Text */
+        .gradient-text-animated {
+            background: var(--gradient-text);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 6s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Glass Card Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(124, 58, 237, 0.3);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        /* Bento Grid Layout */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(124, 58, 237, 0.4);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .bento-item:hover::before {
+            opacity: 1;
+        }
+
+        .bento-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .bento-wide {
+            grid-column: span 2;
+        }
+
+        .bento-tall {
+            grid-row: span 2;
+        }
+
+        /* Neon Glow Effects */
+        .neon-glow {
+            box-shadow:
+                0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 20px currentColor,
+                0 0 40px currentColor;
+        }
+
+        .neon-text {
+            text-shadow:
+                0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 20px currentColor;
+        }
+
+        /* Magnetic Button Effect */
+        .magnetic-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: var(--radius-xl);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .magnetic-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .magnetic-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .magnetic-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Floating Animation */
+        .float-animation {
+            animation: floatUpDown 4s ease-in-out infinite;
+        }
+
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Pulse Ring Animation */
+        .pulse-ring {
+            position: relative;
+        }
+
+        .pulse-ring::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Reveal on Scroll with Stagger */
+        .reveal-stagger {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-stagger.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glitch Effect for Special Elements */
+        .glitch-text {
+            position: relative;
+        }
+
+        .glitch-text:hover {
+            animation: glitch 0.5s ease;
+        }
+
+        @keyframes glitch {
+
+            0%,
+            100% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(2px, -2px);
+            }
+
+            60% {
+                transform: translate(-2px, -2px);
+            }
+
+            80% {
+                transform: translate(2px, 2px);
+            }
+        }
+
+        /* Tech Stack Marquee Styles */
+        .tech-marquee-section {
+            padding: 3rem 0;
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-2) 50%, var(--dark) 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tech-marquee-label {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--gray);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .tech-marquee-wrapper {
+            position: relative;
+            overflow: hidden;
+            mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+        }
+
+        .tech-marquee {
+            display: flex;
+            gap: 4rem;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+
+        .tech-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tech-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .tech-item i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .tech-item span {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--light);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 8rem 3rem;
+            background: var(--dark-2);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            color: var(--primary);
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .testimonial-author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-author-info p {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .testimonial-author-info span {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Education Section */
+        .education-section {
+            padding: 8rem 3rem;
+            background: var(--dark);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .education-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-1);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .education-title h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-title h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-period {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .education-description {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .education-highlight {
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* 3D Tilt Effect for Hero Image */
+        .hero-image-wrapper {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+        }
+
+        /* Glowing Orbs Background */
+        .glow-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: floatOrb 8s ease-in-out infinite;
+        }
+
+        .glow-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            top: -100px;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .glow-orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            bottom: 10%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .glow-orb-3 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            top: 40%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatOrb {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        /* Response Time Badge */
+        .response-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--success);
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+
+        .response-badge i {
+            animation: pulse 2s infinite;
         }
 
         /* Cursor Effects */
@@ -74,7 +836,7 @@
             transform: translate(-50%, -50%);
         }
 
-        /* Loading Screen */
+        /* Loading Screen - Premium */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -83,10 +845,21 @@
             height: 100%;
             background: var(--dark);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 2rem;
             z-index: 10000;
-            transition: opacity 0.5s, visibility 0.5s;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+        }
+
+        .loading-screen::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-mesh);
+            opacity: 0.5;
         }
 
         .loading-screen.hidden {
@@ -95,16 +868,60 @@
         }
 
         .loader {
-            width: 60px;
-            height: 60px;
-            border: 4px solid var(--dark-3);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            z-index: 1;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .loader::before,
+        .loader::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .loader::before {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(from 0deg, var(--primary) 0%, var(--secondary) 25%, var(--accent) 50%, var(--neon-pink) 75%, var(--primary) 100%);
+            animation: loaderSpin 1.5s linear infinite;
+        }
+
+        .loader::after {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            background: var(--dark);
+        }
+
+        @keyframes loaderSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--light);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            z-index: 1;
+            animation: loadingPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes loadingPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         /* Navbar */
@@ -217,22 +1034,39 @@
         }
 
         .hire-btn {
-            background: var(--gradient-1);
+            background: var(--gradient-primary);
             color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 12px;
+            padding: 0.9rem 2rem;
+            border-radius: var(--radius-xl);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hire-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .hire-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-glow-primary);
         }
 
-        /* Hero Section */
+        .hire-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Hero Section - Cutting Edge */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -240,6 +1074,62 @@
             position: relative;
             overflow: hidden;
             padding-top: 100px;
+            background: transparent;
+        }
+
+        /* Animated Gradient Orbs in Hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: orbFloat1 15s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: orbFloat2 12s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes orbFloat1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(50px, 30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-30px, -20px) scale(0.95);
+            }
+        }
+
+        @keyframes orbFloat2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(40px, -40px) scale(1.15);
+            }
         }
 
         .neural-bg {
@@ -260,73 +1150,92 @@
             gap: 6rem;
             align-items: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-content {
-            animation: fadeInUp 1s ease;
+            animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes fadeInUp {
+        @keyframes heroFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
+                filter: blur(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
+                filter: blur(0);
             }
         }
 
         .hero-tag {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: 50px;
-            color: var(--primary);
+            gap: 0.6rem;
+            padding: 0.7rem 1.4rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            color: var(--neon-green);
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 2rem;
+            animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
         }
 
         .hero-tag .pulse {
-            width: 8px;
-            height: 8px;
-            background: var(--success);
+            width: 10px;
+            height: 10px;
+            background: var(--neon-green);
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            animation: pulseGlow 2s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
         }
 
-        @keyframes pulse {
-            0%, 100% {
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
                 opacity: 1;
                 transform: scale(1);
+                box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
             }
+
             50% {
-                opacity: 0.5;
-                transform: scale(1.2);
+                opacity: 0.7;
+                transform: scale(1.3);
+                box-shadow: 0 0 20px var(--neon-green), 0 0 40px var(--neon-green);
             }
         }
 
         .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.05;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+            letter-spacing: -0.02em;
+            animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .hero-content h1 .line-1 {
+            display: block;
+            background: linear-gradient(135deg, var(--light) 0%, var(--gray-light) 100%);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-content .gradient-text {
-            background: var(--gradient-1);
+            background: var(--gradient-text);
+            background-size: 300% 100%;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 6s ease infinite;
         }
 
         .typed-wrapper {
@@ -394,62 +1303,87 @@
         }
 
         .btn {
-            padding: 1.1rem 2.5rem;
-            border-radius: 14px;
+            padding: 1.2rem 2.8rem;
+            border-radius: var(--radius-xl);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
-            background: var(--gradient-1);
+            background: var(--gradient-primary);
             color: white;
             box-shadow: var(--shadow-md);
         }
 
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-outline {
-            background: transparent;
-            border: 2px solid rgba(99, 102, 241, 0.5);
-            color: var(--primary);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            color: var(--light);
         }
 
         .btn-outline:hover {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(124, 58, 237, 0.1);
             border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
         }
 
         .hero-image {
             position: relative;
-            animation: fadeInRight 1s ease 0.3s both;
+            animation: heroImageFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
         }
 
-        @keyframes fadeInRight {
+        @keyframes heroImageFadeIn {
             from {
                 opacity: 0;
-                transform: translateX(30px);
+                transform: translateX(50px) scale(0.95);
+                filter: blur(10px);
             }
+
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) scale(1);
+                filter: blur(0);
             }
         }
 
         .hero-image-wrapper {
             position: relative;
-            border-radius: 30px;
+            border-radius: var(--radius-2xl);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
 
         .hero-image-wrapper::before {
@@ -459,9 +1393,34 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--gradient-1);
-            opacity: 0.2;
+            background: var(--gradient-primary);
+            opacity: 0.15;
             z-index: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-2xl);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .hero-image-wrapper:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.02);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .hero-image-wrapper:hover::before {
+            opacity: 0.25;
+        }
+
+        .hero-image-wrapper:hover::after {
+            opacity: 0.5;
         }
 
         .hero-image-wrapper img {
@@ -469,17 +1428,22 @@
             display: block;
             position: relative;
             z-index: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.05);
         }
 
         .floating-card {
             position: absolute;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
             padding: 1.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--shadow-lg);
-            animation: float 3s ease-in-out infinite;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            animation: floatCard 4s ease-in-out infinite;
         }
 
         .floating-card.card-1 {
@@ -495,24 +1459,40 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
+            }
+        }
+
+        @keyframes floatCard {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
             }
         }
 
         .card-icon {
             width: 50px;
             height: 50px;
-            background: var(--gradient-1);
-            border-radius: 12px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 0.8rem;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
         }
 
         .card-title {
@@ -524,10 +1504,15 @@
         .card-value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient-text);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 4s ease infinite;
         }
 
-        /* Section Styles */
+        /* Section Styles - Cutting Edge */
         section {
             padding: 8rem 3rem;
             position: relative;
@@ -541,15 +1526,16 @@
 
         .section-tag {
             display: inline-block;
-            padding: 0.5rem 1.2rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: 50px;
-            color: var(--primary);
+            padding: 0.6rem 1.4rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            color: var(--primary-light);
             font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 1.5rem;
         }
 
@@ -763,6 +1749,7 @@
             0% {
                 transform: translateX(-100%);
             }
+
             100% {
                 transform: translateX(100%);
             }
@@ -792,7 +1779,8 @@
             transition: all 0.3s;
         }
 
-        .filter-btn:hover, .filter-btn.active {
+        .filter-btn:hover,
+        .filter-btn.active {
             background: var(--gradient-1);
             color: white;
             border-color: transparent;
@@ -1128,6 +2116,632 @@
             color: var(--gray);
             font-size: 0.85rem;
             font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Blog Section */
+        #blog {
+            background: var(--dark);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .blog-image {
+            height: 220px;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .blog-card:hover .blog-image::after {
+            opacity: 1;
+        }
+
+        .blog-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-date i {
+            color: var(--primary);
+        }
+
+        .blog-category {
+            padding: 0.4rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .blog-card:hover .blog-title {
+            color: var(--primary);
+        }
+
+        .blog-excerpt {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .blog-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .blog-read-more {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .blog-read-more:hover {
+            gap: 1rem;
+            color: var(--secondary);
+        }
+
+        .blog-read-time {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Admin System */
+        .admin-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+        }
+
+        .admin-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .admin-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 2rem;
+        }
+
+        .admin-modal.active {
+            display: flex;
+        }
+
+        .admin-modal-content {
+            background: var(--dark-2);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .admin-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .admin-modal-header h2 {
+            font-size: 2rem;
+            color: var(--light);
+        }
+
+        .close-admin-modal {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-admin-modal:hover {
+            color: var(--primary);
+        }
+
+        .admin-form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .admin-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        .admin-form-group input,
+        .admin-form-group textarea,
+        .admin-form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--light);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .admin-form-group input:focus,
+        .admin-form-group textarea:focus,
+        .admin-form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .admin-form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .admin-btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .admin-btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .admin-dashboard {
+            background: var(--dark-2);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .admin-dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-dashboard-header h2 {
+            font-size: 2rem;
+            color: var(--light);
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .admin-btn-secondary {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .admin-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-btn-danger {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .admin-btn-danger:hover {
+            background: rgba(239, 68, 68, 0.3);
+        }
+
+        .admin-blogs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .admin-blog-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-blog-item-info {
+            flex: 1;
+        }
+
+        .admin-blog-item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-blog-item-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .admin-blog-item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .admin-icon-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .admin-icon-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-icon-btn.edit {
+            color: var(--primary);
+        }
+
+        .admin-icon-btn.delete {
+            color: #ef4444;
+        }
+
+        .admin-empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray);
+        }
+
+        .admin-empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        /* Full Blog Post View */
+        .blog-post-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .blog-post-modal.active {
+            display: flex;
+        }
+
+        .blog-post-content {
+            background: var(--dark-2);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .blog-post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .blog-post-header-info {
+            flex: 1;
+        }
+
+        .blog-post-close {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 1rem;
+        }
+
+        .blog-post-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--primary);
+        }
+
+        .blog-post-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .blog-post-meta-item i {
+            color: var(--primary);
+        }
+
+        .blog-post-category {
+            padding: 0.5rem 1.2rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-post-body {
+            color: var(--light);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .blog-post-body h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .blog-post-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--light);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-post-body p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .blog-post-body strong {
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        .blog-post-body em {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .blog-post-body ul,
+        .blog-post-body ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            color: var(--gray);
+        }
+
+        .blog-post-body li {
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-post-body code {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            color: var(--primary);
+        }
+
+        .blog-post-body pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .blog-post-body pre code {
+            background: none;
+            padding: 0;
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        .blog-post-body a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+            transition: all 0.3s;
+        }
+
+        .blog-post-body a:hover {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .blog-post-body blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .blog-post-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem 0;
         }
 
         /* Testimonials Section */
@@ -1521,6 +3135,7 @@
 
         /* Responsive Design */
         @media (max-width: 1200px) {
+
             .hero-container,
             .about-grid,
             .contact-grid {
@@ -1540,6 +3155,10 @@
             }
 
             .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+
+            .blog-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
 
@@ -1596,6 +3215,66 @@
                 grid-template-columns: 1fr;
             }
 
+            .projects-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-modal-content,
+            .admin-dashboard {
+                padding: 2rem 1.5rem;
+                max-height: 95vh;
+            }
+
+            .admin-dashboard-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .admin-actions {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .admin-btn {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2rem;
+            }
+
+            .blog-post-content {
+                padding: 2rem 1.5rem;
+                max-height: 95vh;
+            }
+
+            .blog-post-title {
+                font-size: 1.8rem;
+            }
+
+            .blog-post-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .blog-post-close {
+                align-self: flex-end;
+            }
+
+            .blog-post-body {
+                font-size: 1rem;
+            }
+
+            .blog-post-body h2 {
+                font-size: 1.5rem;
+            }
+
+            .blog-post-body h3 {
+                font-size: 1.2rem;
+            }
+
             .footer-bottom {
                 flex-direction: column;
                 gap: 1rem;
@@ -1626,15 +3305,30 @@
         }
     </style>
 </head>
-<body>
+
+<body class="page-transition">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Loading Screen -->
     <div class="loading-screen">
         <div class="loader"></div>
+        <span class="loading-text">Loading</span>
     </div>
 
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
+
+    <!-- Cursor Spotlight Effect -->
+    <div class="cursor-spotlight" id="cursorSpotlight"></div>
+
+    <!-- Glowing Orbs Background -->
+    <div class="glow-orbs">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+    </div>
 
     <!-- Particles Background -->
     <div id="particles-js"></div>
@@ -1652,7 +3346,7 @@
                 <li><a href="#experience">Expérience</a></li>
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
-                <li><a href="#achievements">Réalisations</a></li>
+                <li><a href="#education">Formation</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 1rem;">
@@ -1686,10 +3380,11 @@
                     <div class="typed-text"></div>
                 </div>
                 <p class="hero-description">
-                    Data Scientist spécialisé en Machine Learning, Deep Learning et analyse prédictive. 
-                    Expertise en modélisation statistique, Computer Vision, NLP et déploiement de modèles ML en production.
+                    Data Scientist spécialisé en Machine Learning, Deep Learning et analyse prédictive.
+                    Expertise en modélisation statistique, Computer Vision, NLP et déploiement de modèles ML en
+                    production.
                 </p>
-                
+
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number" data-target="15">0</span>
@@ -1706,7 +3401,8 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="https://drive.google.com/file/d/1n4RcNd773JKvUVJJxI90PVtHqsmtnq4S/view?usp=sharing" class="btn btn-primary" target="_blank">
+                    <a href="https://drive.google.com/file/d/1n4RcNd773JKvUVJJxI90PVtHqsmtnq4S/view?usp=sharing"
+                        class="btn btn-primary" target="_blank">
                         <i class="fas fa-download"></i>
                         Télécharger CV
                     </a>
@@ -1719,9 +3415,10 @@
 
             <div class="hero-image">
                 <div class="hero-image-wrapper">
-                    <img src="img/portfolio-1.png" alt="Mostapha EL ANSARI" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%236366f1%22 width=%22400%22 height=%22400%22/%3E%3C/svg%3E'">
+                    <img src="img/portfolio-1.png" alt="Mostapha EL ANSARI"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%236366f1%22 width=%22400%22 height=%22400%22/%3E%3C/svg%3E'">
                 </div>
-                
+
                 <div class="floating-card card-1">
                     <div class="card-icon">
                         <i class="fas fa-brain"></i>
@@ -1741,6 +3438,112 @@
         </div>
     </section>
 
+    <!-- Tech Stack Marquee -->
+    <section class="tech-marquee-section">
+        <p class="tech-marquee-label">Technologies I Work With</p>
+        <div class="tech-marquee-wrapper">
+            <div class="tech-marquee">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-brain"></i>
+                    <span>TensorFlow</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-fire"></i>
+                    <span>PyTorch</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>AWS</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-docker"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Airflow</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Spark</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-robot"></i>
+                    <span>LangChain</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-eye"></i>
+                    <span>OpenCV</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Pandas</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-brain"></i>
+                    <span>TensorFlow</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-fire"></i>
+                    <span>PyTorch</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>AWS</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-docker"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Airflow</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Spark</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-robot"></i>
+                    <span>LangChain</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-eye"></i>
+                    <span>OpenCV</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Pandas</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about">
         <div class="container">
@@ -1754,20 +3557,25 @@
 
             <div class="about-grid">
                 <div class="about-image-wrapper">
-                    <img src="img/1.jpeg" alt="Mostapha EL ANSARI" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22%3E%3Crect fill=%22%2306b6d4%22 width=%22400%22 height=%22500%22/%3E%3C/svg%3E'">
+                    <img src="img/1.jpeg" alt="Mostapha EL ANSARI"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22%3E%3Crect fill=%22%2306b6d4%22 width=%22400%22 height=%22500%22/%3E%3C/svg%3E'">
                 </div>
 
                 <div class="about-content">
                     <h3>Data Scientist - Machine Learning & Deep Learning</h3>
                     <p>
-                        Data Scientist spécialisé en Machine Learning, Deep Learning et analyse prédictive. 
-                        Mon expertise couvre la modélisation statistique avancée, le Computer Vision, le NLP (Natural Language Processing) 
+                        Data Scientist spécialisé en Machine Learning, Deep Learning et analyse prédictive.
+                        Mon expertise couvre la modélisation statistique avancée, le Computer Vision, le NLP (Natural
+                        Language Processing)
                         et le déploiement de modèles ML en production.
                     </p>
                     <p>
-                        Actuellement étudiant en échange à l'École Centrale Méditerranée, je me spécialise en Data Science 
-                        et Systèmes d'Information tout en poursuivant mon diplôme d'ingénieur à l'École Centrale Casablanca. 
-                        Je recherche un stage de fin d'études (6 mois) pour contribuer à des projets d'IA et d'analyse de données avancée.
+                        Actuellement étudiant en échange à l'École Centrale Méditerranée, je me spécialise en Data
+                        Science
+                        et Systèmes d'Information tout en poursuivant mon diplôme d'ingénieur à l'École Centrale
+                        Casablanca.
+                        Je recherche un stage de fin d'études (6 mois) pour contribuer à des projets d'IA et d'analyse
+                        de données avancée.
                     </p>
 
                     <div class="info-grid">
@@ -1851,9 +3659,12 @@
                             <span class="timeline-period">Fév 2025 – Sep 2025</span>
                         </div>
                         <ul class="timeline-description">
-                            <li>Architecture et déploiement d'infrastructure cloud sécurisée (VPS, pare-feu, durcissement système)</li>
-                            <li>Implémentation de pipeline de données IoT en temps réel avec broker MQTT (Mosquitto)</li>
-                            <li>Conception et optimisation de base de données PostgreSQL pour ingestion haute fréquence</li>
+                            <li>Architecture et déploiement d'infrastructure cloud sécurisée (VPS, pare-feu,
+                                durcissement système)</li>
+                            <li>Implémentation de pipeline de données IoT en temps réel avec broker MQTT (Mosquitto)
+                            </li>
+                            <li>Conception et optimisation de base de données PostgreSQL pour ingestion haute fréquence
+                            </li>
                             <li>Développement de tableaux de bord analytiques: Grafana et Python Dashboard</li>
                             <li>Automatisation pipeline CI/CD pour déploiement continu des services</li>
                         </ul>
@@ -1890,10 +3701,12 @@
                             <span class="timeline-period">Juin 2024 – Jan 2025</span>
                         </div>
                         <ul class="timeline-description">
-                            <li>Migration et automatisation CRM Zoho: digitalisation des processus (facturation, maintenance, gestion clientèle)</li>
+                            <li>Migration et automatisation CRM Zoho: digitalisation des processus (facturation,
+                                maintenance, gestion clientèle)</li>
                             <li>Développement de modèle de classification d'images pour automatisation qualité</li>
                             <li>Intégration OCR pour extraction automatisée de données (-30% temps de traitement)</li>
-                            <li>Création d'interface utilisateur pour exploitation de données extraites et rapports de maintenance</li>
+                            <li>Création d'interface utilisateur pour exploitation de données extraites et rapports de
+                                maintenance</li>
                             <li>Annotation de données et entraînement de modèles Computer Vision</li>
                         </ul>
                         <div class="project-tags">
@@ -1944,8 +3757,9 @@
                         <h3 class="project-title">Semantic Book Recommender System</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Système de recommandation sémantique combinant analyse de contenu et filtrage émotionnel. 
-                            Recherche sémantique basée sur descriptions, filtrage par émotions et catégories avec interface Gradio interactive.
+                            Système de recommandation sémantique combinant analyse de contenu et filtrage émotionnel.
+                            Recherche sémantique basée sur descriptions, filtrage par émotions et catégories avec
+                            interface Gradio interactive.
                         </p>
                         <div class="project-tags">
                             <span class="tag">LangChain</span>
@@ -1955,7 +3769,8 @@
                             <span class="tag">NLP</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/mostaphaelansari/Semantic-Book-Recommender" target="_blank" class="project-link">
+                            <a href="https://github.com/mostaphaelansari/Semantic-Book-Recommender" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -1975,7 +3790,7 @@
                         <h3 class="project-title">Image Data Augmentation App</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Application Streamlit puissante pour augmentation d'images multiples simultanément. 
+                            Application Streamlit puissante pour augmentation d'images multiples simultanément.
                             Techniques d'augmentation variées pour expansion de datasets d'entraînement ML.
                         </p>
                         <div class="project-tags">
@@ -1985,7 +3800,8 @@
                             <span class="tag">Data Augmentation</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://data-augmentation-images.streamlit.app/" target="_blank" class="project-link">
+                            <a href="https://data-augmentation-images.streamlit.app/" target="_blank"
+                                class="project-link">
                                 <i class="fas fa-link"></i> Demo Live
                             </a>
                         </div>
@@ -2005,7 +3821,7 @@
                         <h3 class="project-title">YouTube Video Summarizer with Llama 3.2</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Application de résumé automatique de vidéos YouTube utilisant LangChain et Llama 3.2. 
+                            Application de résumé automatique de vidéos YouTube utilisant LangChain et Llama 3.2.
                             Extraction de transcription et génération de résumés concis via modèle de langage local.
                         </p>
                         <div class="project-tags">
@@ -2015,7 +3831,8 @@
                             <span class="tag">NLP</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/mostaphaelansari/Youtube-Video-Summarizer-with-Llama3.2" target="_blank" class="project-link">
+                            <a href="https://github.com/mostaphaelansari/Youtube-Video-Summarizer-with-Llama3.2"
+                                target="_blank" class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -2035,8 +3852,9 @@
                         <h3 class="project-title">Text to SQL with Deepseek</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Application web convertissant questions en langage naturel en requêtes SQL. 
-                            Analyse de schéma SQLite, exécution de requêtes, historique conversationnel et base de test e-commerce.
+                            Application web convertissant questions en langage naturel en requêtes SQL.
+                            Analyse de schéma SQLite, exécution de requêtes, historique conversationnel et base de test
+                            e-commerce.
                         </p>
                         <div class="project-tags">
                             <span class="tag">SQLite</span>
@@ -2046,7 +3864,8 @@
                             <span class="tag">NLP</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/mostaphaelansari/Text-to-SQL-with-Deepseek" target="_blank" class="project-link">
+                            <a href="https://github.com/mostaphaelansari/Text-to-SQL-with-Deepseek" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -2066,8 +3885,9 @@
                         <h3 class="project-title">Deepseek AI Document Q&A</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Système avancé d'analyse et Q&A documentaire avec modèle LLAMA RAG. 
-                            Upload de documents, parsing intelligent, chunking et génération de réponses contextuelles via interface web intuitive.
+                            Système avancé d'analyse et Q&A documentaire avec modèle LLAMA RAG.
+                            Upload de documents, parsing intelligent, chunking et génération de réponses contextuelles
+                            via interface web intuitive.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Llama 3.2</span>
@@ -2076,7 +3896,8 @@
                             <span class="tag">NLP</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/mostaphaelansari/LLM-Powered-Document-Q-A-with-Llama-3.2" target="_blank" class="project-link">
+                            <a href="https://github.com/mostaphaelansari/LLM-Powered-Document-Q-A-with-Llama-3.2"
+                                target="_blank" class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -2100,7 +3921,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Pipeline ETL automatisé pour ingestion multi-sources (API REST, CSV, SQL). 
+                            Pipeline ETL automatisé pour ingestion multi-sources (API REST, CSV, SQL).
                             Orchestration Airflow, transformation PySpark, chargement PostgreSQL Data Warehouse.
                         </p>
                         <div class="project-tags">
@@ -2124,7 +3945,7 @@
                         <h3 class="project-title">Data Lakehouse - Architecture Medallion</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Architecture Data Lakehouse (Bronze/Silver/Gold) pour traitement massif. 
+                            Architecture Data Lakehouse (Bronze/Silver/Gold) pour traitement massif.
                             Streaming temps réel Kafka, transformation batch PySpark, couche analytique Power BI.
                         </p>
                         <div class="project-tags">
@@ -2148,7 +3969,8 @@
                         <h3 class="project-title">Système de Recommandation Deep Learning</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Système de recommandation avancé avec réseaux neuronaux (Collaborative Filtering + Content-Based). 
+                            Système de recommandation avancé avec réseaux neuronaux (Collaborative Filtering +
+                            Content-Based).
                             Embeddings et mécanismes d'attention pour personnalisation.
                         </p>
                         <div class="project-tags">
@@ -2172,7 +3994,8 @@
                         <h3 class="project-title">Gestion Intelligente du Trafic avec YOLO V8</h3>
                         <span class="project-year">2023</span>
                         <p class="project-description">
-                            Gestion du trafic révolutionnaire avec YOLO V8 pour identifier dynamiquement les voies les plus fréquentées. 
+                            Gestion du trafic révolutionnaire avec YOLO V8 pour identifier dynamiquement les voies les
+                            plus fréquentées.
                             Traitement d'image avancé pour optimiser le flux de circulation.
                         </p>
                         <div class="project-tags">
@@ -2181,7 +4004,8 @@
                             <span class="tag">Python</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/mostaphaelansari/Learning-by-doing.git" target="_blank" class="project-link">
+                            <a href="https://github.com/mostaphaelansari/Learning-by-doing.git" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -2200,7 +4024,8 @@
                         <h3 class="project-title">Recommandation de Films avec K-Means</h3>
                         <span class="project-year">2023</span>
                         <p class="project-description">
-                            Analyse du dataset MovieLens 100k avec K-means clustering pour calculer la similarité des préférences utilisateurs. 
+                            Analyse du dataset MovieLens 100k avec K-means clustering pour calculer la similarité des
+                            préférences utilisateurs.
                             Recommandations personnalisées basées sur les similarités.
                         </p>
                         <div class="project-tags">
@@ -2209,7 +4034,8 @@
                             <span class="tag">K-Means</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/mostaphaelansari/data-Analytics-data-science" target="_blank" class="project-link">
+                            <a href="https://github.com/mostaphaelansari/data-Analytics-data-science" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -2228,7 +4054,7 @@
                         <h3 class="project-title">Segmentation d'Images Médicales - TransGAN & TransUNet</h3>
                         <span class="project-year">2023</span>
                         <p class="project-description">
-                            Segmentation avancée d'images COVID-19 intégrant 3D GAN et TransUNet. 
+                            Segmentation avancée d'images COVID-19 intégrant 3D GAN et TransUNet.
                             Tests rigoureux sur dataset Mosmed avec résultats supérieurs pour l'imagerie médicale.
                         </p>
                         <div class="project-tags">
@@ -2238,7 +4064,8 @@
                             <span class="tag">Medical Imaging</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://drive.google.com/file/d/1JGJszgsuYAHdP-zxVQhjpQTzQl-QJwbk/view" target="_blank" class="project-link">
+                            <a href="https://drive.google.com/file/d/1JGJszgsuYAHdP-zxVQhjpQTzQl-QJwbk/view"
+                                target="_blank" class="project-link">
                                 <i class="fas fa-file-pdf"></i> Article
                             </a>
                         </div>
@@ -2257,7 +4084,7 @@
                         <h3 class="project-title">BERTech Materials - IA Découverte Fournisseurs</h3>
                         <span class="project-year">2023</span>
                         <p class="project-description">
-                            Plateforme B2B révolutionnaire utilisant BERT pour matching intelligent de fournisseurs. 
+                            Plateforme B2B révolutionnaire utilisant BERT pour matching intelligent de fournisseurs.
                             Communication améliorée entre fournisseurs et entreprises pour échange efficace.
                         </p>
                         <div class="project-tags">
@@ -2266,7 +4093,8 @@
                             <span class="tag">Machine Learning</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://www.canva.com/design/DAF5U_7kR0o/Mzhw4QC1Zk4HS6cO3fsP7w/edit" target="_blank" class="project-link">
+                            <a href="https://www.canva.com/design/DAF5U_7kR0o/Mzhw4QC1Zk4HS6cO3fsP7w/edit"
+                                target="_blank" class="project-link">
                                 <i class="fas fa-link"></i> Projet
                             </a>
                         </div>
@@ -2284,7 +4112,7 @@
                         <h3 class="project-title">Prévision Séries Temporelles avec LSTM</h3>
                         <span class="project-year">2024</span>
                         <p class="project-description">
-                            Modèles prédictifs pour séries temporelles avec ARIMA, LSTM et Prophet. 
+                            Modèles prédictifs pour séries temporelles avec ARIMA, LSTM et Prophet.
                             Feature engineering avancé, détection d'anomalies et validation statistique.
                         </p>
                         <div class="project-tags">
@@ -2307,7 +4135,7 @@
                         <h3 class="project-title">Détection de Fraude Bancaire</h3>
                         <span class="project-year">2023</span>
                         <p class="project-description">
-                            Modèle ML sophistiqué pour détection temps réel de fraude bancaire. 
+                            Modèle ML sophistiqué pour détection temps réel de fraude bancaire.
                             Feature engineering, traitement déséquilibre classes avec SMOTE et optimisation.
                         </p>
                         <div class="project-tags">
@@ -2480,6 +4308,255 @@
         </div>
     </section>
 
+    <!-- Education Section -->
+    <section class="education-section" id="education">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Formation</span>
+                <h2 class="section-title">Formation Académique</h2>
+                <p class="section-description">
+                    Un parcours d'excellence dans les meilleures écoles d'ingénieurs
+                </p>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card reveal">
+                    <div class="education-header">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-title">
+                            <h3>École Centrale Méditerranée</h3>
+                            <h4>Échange Académique - Data Science & SI</h4>
+                            <span class="education-period">
+                                <i class="far fa-calendar"></i>
+                                2024 - 2025
+                            </span>
+                        </div>
+                    </div>
+                    <p class="education-description">
+                        Spécialisation en Data Science et Systèmes d'Information dans le cadre d'un échange académique.
+                        Focus sur l'apprentissage automatique avancé, le traitement du signal et les systèmes
+                        distribués.
+                    </p>
+                    <div class="education-highlights">
+                        <span class="education-highlight">Machine Learning</span>
+                        <span class="education-highlight">Big Data</span>
+                        <span class="education-highlight">Cloud Computing</span>
+                        <span class="education-highlight">Deep Learning</span>
+                    </div>
+                </div>
+
+                <div class="education-card reveal">
+                    <div class="education-header">
+                        <div class="education-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="education-title">
+                            <h3>École Centrale Casablanca</h3>
+                            <h4>Diplôme d'Ingénieur - Génie Informatique</h4>
+                            <span class="education-period">
+                                <i class="far fa-calendar"></i>
+                                2020 - 2025
+                            </span>
+                        </div>
+                    </div>
+                    <p class="education-description">
+                        Formation d'ingénieur généraliste avec spécialisation en informatique et intelligence
+                        artificielle.
+                        Projets multidisciplinaires en équipe et développement de compétences techniques avancées.
+                    </p>
+                    <div class="education-highlights">
+                        <span class="education-highlight">Algorithmique</span>
+                        <span class="education-highlight">Intelligence Artificielle</span>
+                        <span class="education-highlight">Développement Logiciel</span>
+                        <span class="education-highlight">Gestion de Projet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Gallery Section -->
+    <section class="certificates-section" id="certificates">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Certifications</span>
+                <h2 class="section-title">Mes Certificats</h2>
+                <p class="section-description">
+                    Certifications professionnelles de DataCamp, Hugging Face et autres plateformes
+                </p>
+            </div>
+
+            <div class="certificates-gallery">
+                <!-- Certificate 1 - DataCamp -->
+                <div class="certificate-card reveal"
+                    onclick="openCertificateModal('img/certificate-1.jpg', 'DataCamp - Data Science Certificate')">
+                    <div class="certificate-image-wrapper">
+                        <img src="img/certificate-1.jpg" alt="DataCamp Certificate" loading="lazy">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Voir le certificat</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <div class="certificate-badge">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>DataCamp Certificate</h3>
+                        <p>Data Science</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 - Hugging Face -->
+                <div class="certificate-card reveal"
+                    onclick="openCertificateModal('img/certificate-2.jpg', 'Hugging Face - NLP Certificate')">
+                    <div class="certificate-image-wrapper">
+                        <img src="img/certificate-2.jpg" alt="Hugging Face Certificate" loading="lazy">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Voir le certificat</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <div class="certificate-badge huggingface">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Hugging Face Certificate</h3>
+                        <p>NLP & Transformers</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-card reveal"
+                    onclick="openCertificateModal('img/certificate-3.jpg', 'Professional Certificate')">
+                    <div class="certificate-image-wrapper">
+                        <img src="img/certificate-3.jpg" alt="Professional Certificate" loading="lazy">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Voir le certificat</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <div class="certificate-badge other">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Professional Certificate</h3>
+                        <p>Machine Learning</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder for more certificates -->
+                <div class="certificate-card add-certificate reveal">
+                    <div class="add-certificate-content">
+                        <i class="fas fa-plus-circle"></i>
+                        <p>Plus de certificats à venir...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div class="certificate-modal" id="certificateModal">
+        <div class="certificate-modal-content">
+            <button class="certificate-modal-close" onclick="closeCertificateModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="certificateModalImage" src="" alt="Certificate">
+            <h3 id="certificateModalTitle"></h3>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Témoignages</span>
+                <h2 class="section-title">Ce Qu'ils Disent de Moi</h2>
+                <p class="section-description">
+                    Retours de superviseurs et collaborateurs sur mon travail
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-content">
+                        "Mostapha a fait preuve d'une grande autonomie et d'une capacité remarquable à résoudre des
+                        problèmes complexes.
+                        Son travail sur l'automatisation CRM et les modèles de vision par ordinateur a considérablement
+                        amélioré nos processus."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">LC</div>
+                        <div class="testimonial-author-info">
+                            <h4>Superviseur Technique</h4>
+                            <p>Locacoeur</p>
+                            <span>Stage ML Engineer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-content">
+                        "Excellent travail sur l'infrastructure IoT et les pipelines de données. Mostapha a su s'adapter
+                        rapidement
+                        aux technologies cloud et livrer des solutions robustes pour notre plateforme de monitoring
+                        temps réel."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-author-info">
+                            <h4>Directeur Technique</h4>
+                            <p>Smartly</p>
+                            <span>Stage DevOps/IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-content">
+                        "Un étudiant brillant avec une passion évidente pour la Data Science. Ses projets de recherche
+                        en segmentation
+                        d'images médicales démontrent une compréhension approfondie du Deep Learning et des
+                        architectures transformer."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PR</div>
+                        <div class="testimonial-author-info">
+                            <h4>Professeur Encadrant</h4>
+                            <p>École Centrale</p>
+                            <span>Projet de Recherche</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Articles Techniques</span>
+                <h2 class="section-title">Blog Technique</h2>
+                <p class="section-description">
+                    Partage de connaissances, tutoriels et réflexions sur le Machine Learning, Data Engineering et l'IA
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="blog.html" class="hire-btn"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-book-open"></i> Voir tous les articles
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts are loaded dynamically from localStorage -->
+            </div>
+        </div>
+    </section>
+
     <!-- Achievements Section -->
     <section id="achievements">
         <div class="container">
@@ -2546,7 +4623,8 @@
                 <div class="contact-info">
                     <h3>Discutons de Votre Projet</h3>
                     <p>
-                        Je recherche un stage de fin d'études (6 mois) en Data Science pour contribuer à des projets d'IA 
+                        Je recherche un stage de fin d'études (6 mois) en Data Science pour contribuer à des projets
+                        d'IA
                         et d'analyse de données avancée. N'hésitez pas à me contacter pour toute opportunité!
                     </p>
 
@@ -2594,6 +4672,11 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
+
+                    <div class="response-badge">
+                        <i class="fas fa-clock"></i>
+                        <span>Répond généralement sous 24h</span>
+                    </div>
                 </div>
 
                 <div class="contact-form">
@@ -2630,7 +4713,7 @@
             <div class="footer-brand">
                 <h4><span style="color: var(--primary);">Mostapha</span> EL ANSARI</h4>
                 <p>
-                    Data Scientist passionné par l'IA et le Machine Learning. 
+                    Data Scientist passionné par l'IA et le Machine Learning.
                     Transformons vos données en insights actionnables.
                 </p>
                 <div class="social-links">
@@ -2686,6 +4769,143 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- Admin Button -->
+    <div class="admin-btn" id="adminBtn" title="Admin Access - Click to manage blog posts">
+        <i class="fas fa-user-shield"></i>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="admin-modal" id="adminLoginModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2>Admin Login</h2>
+                <button class="close-admin-modal" onclick="closeAdminModal('adminLoginModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="adminLoginForm">
+                <div class="admin-form-group">
+                    <label>Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+                </div>
+                <button type="submit" class="admin-btn-submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div class="admin-modal" id="adminDashboardModal">
+        <div class="admin-dashboard">
+            <div class="admin-dashboard-header">
+                <h2>Blog Management</h2>
+                <div class="admin-actions">
+                    <button class="admin-btn-secondary" onclick="openNewBlogForm()">
+                        <i class="fas fa-plus"></i> Nouvel Article
+                    </button>
+                    <button class="admin-btn-secondary admin-btn-danger" onclick="logoutAdmin()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                    <button class="close-admin-modal" onclick="closeAdminModal('adminDashboardModal')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="adminBlogsList" class="admin-blogs-list">
+                <!-- Blog posts will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Blog Post View Modal -->
+    <div class="blog-post-modal" id="blogPostModal">
+        <div class="blog-post-content">
+            <div class="blog-post-header">
+                <div class="blog-post-header-info">
+                    <h1 class="blog-post-title" id="blogPostTitle"></h1>
+                    <div class="blog-post-meta" id="blogPostMeta"></div>
+                </div>
+                <button class="blog-post-close" onclick="closeBlogPostModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="blog-post-body" id="blogPostBody"></div>
+        </div>
+    </div>
+
+    <!-- New/Edit Blog Form Modal -->
+    <div class="admin-modal" id="adminBlogFormModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2 id="blogFormTitle">New Blog Post</h2>
+                <button class="close-admin-modal" onclick="closeAdminModal('adminBlogFormModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="adminBlogForm">
+                <input type="hidden" id="blogEditId">
+                <div class="admin-form-group">
+                    <label>Title</label>
+                    <input type="text" id="blogTitle" placeholder="Blog post title" required>
+                </div>
+                <div class="admin-form-group">
+                    <label>Category</label>
+                    <select id="blogCategory" required>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Data Engineering">Data Engineering</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Computer Vision">Computer Vision</option>
+                        <option value="NLP">NLP</option>
+                        <option value="Cloud & MLOps">Cloud & MLOps</option>
+                        <option value="Tutoriel">Tutoriel</option>
+                        <option value="Deep Learning">Deep Learning</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label>Date</label>
+                    <input type="date" id="blogDate" required>
+                </div>
+                <div class="admin-form-group">
+                    <label>Read Time (minutes)</label>
+                    <input type="number" id="blogReadTime" placeholder="10" min="1" required>
+                </div>
+                <div class="admin-form-group">
+                    <label>Gradient Color 1</label>
+                    <input type="color" id="blogGradient1" value="#6366f1">
+                </div>
+                <div class="admin-form-group">
+                    <label>Gradient Color 2</label>
+                    <input type="color" id="blogGradient2" value="#8b5cf6">
+                </div>
+                <div class="admin-form-group">
+                    <label>Icon (Font Awesome class, e.g., fa-brain)</label>
+                    <input type="text" id="blogIcon" placeholder="fa-brain">
+                </div>
+                <div class="admin-form-group">
+                    <label>Excerpt (Brief description shown on card)</label>
+                    <textarea id="blogExcerpt" placeholder="Brief description of the blog post..." rows="3"
+                        required></textarea>
+                </div>
+                <div class="admin-form-group">
+                    <label>Full Blog Content</label>
+                    <textarea id="blogFullContent"
+                        placeholder="Write your full blog post here. You can use HTML formatting like &lt;h2&gt;, &lt;p&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;code&gt;, etc."
+                        rows="15" required></textarea>
+                    <small style="color: var(--gray); margin-top: 0.5rem; display: block;">
+                        You can use HTML tags for formatting (h2, h3, p, strong, em, ul, li, code, pre, a, etc.)
+                    </small>
+                </div>
+                <div class="admin-form-group">
+                    <label>External Link (Optional - if post is on another site)</label>
+                    <input type="url" id="blogLink" placeholder="https://example.com/post">
+                    <small style="color: var(--gray); margin-top: 0.5rem; display: block;">
+                        Leave empty to show full content in modal. Fill this if your post is hosted elsewhere.
+                    </small>
+                </div>
+                <button type="submit" class="admin-btn-submit" id="blogSubmitBtn">Save Post</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Loading Screen
         window.addEventListener('load', () => {
@@ -2694,18 +4914,39 @@
             }, 1000);
         });
 
-        // Custom Cursor
+        // Custom Cursor + Spotlight Effect
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
+        const cursorSpotlight = document.getElementById('cursorSpotlight');
 
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
-            
+
             setTimeout(() => {
                 cursorFollower.style.left = e.clientX + 'px';
                 cursorFollower.style.top = e.clientY + 'px';
             }, 100);
+
+            // Spotlight follows cursor with smooth transition
+            if (cursorSpotlight) {
+                cursorSpotlight.style.left = e.clientX + 'px';
+                cursorSpotlight.style.top = e.clientY + 'px';
+            }
+        });
+
+        // Cursor hover effects on interactive elements
+        document.querySelectorAll('a, button, .project-card, .skill-category, .achievement-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursor.style.borderColor = 'var(--secondary)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.borderColor = 'var(--primary)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
         });
 
         // Navbar Scroll Effect
@@ -2715,6 +4956,15 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+
+            // Scroll Progress Indicator
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (scrollProgress) {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                scrollProgress.style.width = scrolled + '%';
             }
         });
 
@@ -2764,7 +5014,7 @@
 
         function type() {
             const currentText = textArray[textIndex];
-            
+
             if (isDeleting) {
                 typedText.textContent = currentText.substring(0, charIndex - 1);
                 charIndex--;
@@ -2893,10 +5143,10 @@
         const themeIcon = themeToggle.querySelector('i');
 
         themeToggle.addEventListener('click', () => {
-            document.body.setAttribute('data-theme', 
+            document.body.setAttribute('data-theme',
                 document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
             );
-            
+
             if (document.body.getAttribute('data-theme') === 'light') {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
@@ -2992,7 +5242,7 @@
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             particles.forEach(particle => {
                 particle.update();
                 particle.draw();
@@ -3008,7 +5258,391 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
+
+        // ============ ADMIN SYSTEM ============
+        const ADMIN_PASSWORD = 'admin123'; // Change this to your desired password
+        const BLOGS_STORAGE_KEY = 'portfolio_blogs';
+        const ADMIN_SESSION_KEY = 'admin_session';
+
+        // Check if user is logged in
+        function isAdminLoggedIn() {
+            return localStorage.getItem(ADMIN_SESSION_KEY) === 'true';
+        }
+
+        // Admin Login
+        document.getElementById('adminBtn').addEventListener('click', () => {
+            if (isAdminLoggedIn()) {
+                openAdminDashboard();
+            } else {
+                document.getElementById('adminLoginModal').classList.add('active');
+            }
+        });
+
+        document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const password = document.getElementById('adminPassword').value;
+
+            if (password === ADMIN_PASSWORD) {
+                localStorage.setItem(ADMIN_SESSION_KEY, 'true');
+                closeAdminModal('adminLoginModal');
+                openAdminDashboard();
+                document.getElementById('adminPassword').value = '';
+            } else {
+                alert('Incorrect password!');
+            }
+        });
+
+        function logoutAdmin() {
+            localStorage.removeItem(ADMIN_SESSION_KEY);
+            closeAdminModal('adminDashboardModal');
+            alert('Logged out successfully!');
+        }
+
+        function closeAdminModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function openAdminDashboard() {
+            document.getElementById('adminDashboardModal').classList.add('active');
+            loadBlogsList();
+        }
+
+        // Blog Management Functions
+        function getBlogs() {
+            const blogs = localStorage.getItem(BLOGS_STORAGE_KEY);
+            return blogs ? JSON.parse(blogs) : [];
+        }
+
+        function saveBlogs(blogs) {
+            localStorage.setItem(BLOGS_STORAGE_KEY, JSON.stringify(blogs));
+            renderBlogs();
+        }
+
+        function initializeDefaultBlogs() {
+            const defaultBlogs = [
+                {
+                    id: Date.now(),
+                    title: 'Comprendre les Transformers : Architecture et Applications Modernes',
+                    category: 'Machine Learning',
+                    date: '2025-01-15',
+                    readTime: 8,
+                    gradient1: '#6366f1',
+                    gradient2: '#8b5cf6',
+                    icon: 'fa-brain',
+                    excerpt: 'Exploration approfondie de l\'architecture Transformer, de son mécanisme d\'attention multi-têtes aux applications dans le NLP et la vision par ordinateur. Analyse de modèles comme BERT, GPT et Vision Transformers.',
+                    fullContent: '<p>Dans cet article, nous allons explorer en profondeur l\'architecture Transformer, qui a révolutionné le domaine du traitement du langage naturel et de la vision par ordinateur.</p><h2>Introduction aux Transformers</h2><p>Les Transformers ont été introduits dans le célèbre papier <strong>"Attention Is All You Need"</strong> en 2017. Contrairement aux architectures précédentes basées sur les RNN ou CNN, les Transformers reposent entièrement sur des mécanismes d\'attention.</p><h2>Architecture de Base</h2><p>L\'architecture Transformer comprend plusieurs composants clés :</p><ul><li><strong>Encoder</strong> : Traite la séquence d\'entrée</li><li><strong>Decoder</strong> : Génère la séquence de sortie</li><li><strong>Attention Multi-Têtes</strong> : Permet au modèle de se concentrer sur différentes parties de l\'entrée</li><li><strong>Feed-Forward Networks</strong> : Réseaux de neurones pour le traitement non-linéaire</li></ul><h2>Applications Modernes</h2><p>Les Transformers sont maintenant utilisés dans :</p><ul><li><strong>BERT</strong> : Compréhension du langage naturel</li><li><strong>GPT</strong> : Génération de texte</li><li><strong>Vision Transformers</strong> : Traitement d\'images</li></ul><p>Ces modèles ont atteint des performances remarquables dans de nombreuses tâches.</p>',
+                    link: ''
+                },
+                {
+                    id: Date.now() + 1,
+                    title: 'Construire des Pipelines ETL Scalables avec Apache Airflow',
+                    category: 'Data Engineering',
+                    date: '2025-01-10',
+                    readTime: 12,
+                    gradient1: '#06b6d4',
+                    gradient2: '#3b82f6',
+                    icon: 'fa-database',
+                    excerpt: 'Guide pratique pour créer des pipelines de données robustes et évolutifs. Gestion des dépendances, monitoring, et bonnes pratiques pour la production avec des exemples concrets.',
+                    fullContent: '<p>Apache Airflow est un excellent outil pour orchestrer et gérer vos pipelines de données. Dans cet article, nous allons explorer comment construire des pipelines robustes et scalables.</p><h2>Introduction à Apache Airflow</h2><p>Airflow permet de définir, planifier et surveiller des workflows complexes de manière programmatique. Les pipelines sont définis comme des graphes de tâches acycliques dirigés (DAGs).</p><h2>Concepts Clés</h2><ul><li><strong>DAG</strong> : Directed Acyclic Graph définissant vos tâches</li><li><strong>Operators</strong> : Composants réutilisables pour exécuter des tâches</li><li><strong>Tasks</strong> : Instances d\'opérateurs dans un DAG</li><li><strong>Sensors</strong> : Opérateurs qui attendent un événement</li></ul><h2>Bonnes Pratiques</h2><p>Pour créer des pipelines scalables, suivez ces pratiques :</p><ul><li>Utilisez des tâches idempotentes</li><li>Implémentez un retry logic approprié</li><li>Monitorer vos pipelines avec les alertes</li><li>Utilisez des pools pour limiter la concurrence</li></ul>',
+                    link: ''
+                },
+                {
+                    id: Date.now() + 2,
+                    title: 'Optimisation Hyperparamètres : Méthodes Modernes vs Classiques',
+                    category: 'Data Science',
+                    date: '2025-01-05',
+                    readTime: 10,
+                    gradient1: '#10b981',
+                    gradient2: '#14b8a6',
+                    icon: 'fa-chart-line',
+                    excerpt: 'Comparaison des techniques d\'optimisation : Grid Search, Random Search, Bayesian Optimization et Optuna. Quand utiliser chaque méthode et comment améliorer l\'efficacité de vos expérimentations ML.',
+                    fullContent: '<p>L\'optimisation des hyperparamètres est cruciale pour obtenir les meilleures performances de vos modèles de machine learning. Explorons les différentes méthodes disponibles.</p><h2>Méthodes Classiques</h2><h3>Grid Search</h3><p>La recherche par grille teste toutes les combinaisons d\'hyperparamètres. C\'est exhaustif mais peut être très coûteux.</p><h3>Random Search</h3><p>La recherche aléatoire sélectionne des combinaisons au hasard. Plus efficace que Grid Search, surtout avec de nombreux hyperparamètres.</p><h2>Méthodes Modernes</h2><h3>Bayesian Optimization</h3><p>Utilise un modèle probabiliste pour guider la recherche vers les régions prometteuses de l\'espace des hyperparamètres.</p><h3>Optuna</h3><p>Un framework moderne qui implémente des algorithmes d\'optimisation avancés comme TPE (Tree-structured Parzen Estimator).</p><h2>Quand Utiliser Quelle Méthode?</h2><p>Choisissez Grid Search pour des espaces petits et discrets. Optez pour Optuna ou Bayesian Optimization pour des espaces complexes et continus.</p>',
+                    link: ''
+                },
+                {
+                    id: Date.now() + 3,
+                    title: 'YOLO vs Faster R-CNN : Comparaison des Modèles de Détection d\'Objets',
+                    category: 'Computer Vision',
+                    date: '2024-12-28',
+                    readTime: 15,
+                    gradient1: '#ef4444',
+                    gradient2: '#f59e0b',
+                    icon: 'fa-eye',
+                    excerpt: 'Analyse comparative des architectures de détection d\'objets en temps réel. Avantages, limitations et cas d\'usage pour chaque modèle dans des applications industrielles.',
+                    fullContent: '<p>La détection d\'objets est une tâche fondamentale en vision par ordinateur. Comparons deux architectures populaires : YOLO et Faster R-CNN.</p><h2>YOLO (You Only Look Once)</h2><p>YOLO traite la détection comme un problème de régression, divisant l\'image en grille et prédissant directement les boîtes englobantes et les classes.</p><h3>Avantages</h3><ul><li><strong>Vitesse</strong> : Très rapide, idéal pour le temps réel</li><li><strong>Simplicité</strong> : Architecture end-to-end</li><li><strong>Efficacité</strong> : Traite l\'image en une seule passe</li></ul><h3>Limitations</h3><ul><li>Difficulté avec les petits objets</li><li>Moins précis que les méthodes à deux étapes</li></ul><h2>Faster R-CNN</h2><p>Faster R-CNN utilise une approche à deux étapes : région proposal puis classification et raffinage.</p><h3>Avantages</h3><ul><li><strong>Précision</strong> : Meilleure détection de petits objets</li><li><strong>Flexibilité</strong> : Architecture modulaire</li></ul><h3>Limitations</h3><ul><li>Plus lent que YOLO</li><li>Architecture plus complexe</li></ul><h2>Quand Utiliser Chaque Modèle?</h2><p>Utilisez <strong>YOLO</strong> pour des applications en temps réel nécessitant de la vitesse. Choisissez <strong>Faster R-CNN</strong> quand la précision est prioritaire.</p>',
+                    link: ''
+                },
+                {
+                    id: Date.now() + 4,
+                    title: 'Déploiement de Modèles ML en Production : Stratégies et Bonnes Pratiques',
+                    category: 'Cloud & MLOps',
+                    date: '2024-12-20',
+                    readTime: 18,
+                    gradient1: '#8b5cf6',
+                    gradient2: '#a78bfa',
+                    icon: 'fa-cloud',
+                    excerpt: 'Guide complet pour mettre en production des modèles ML : conteneurisation Docker, APIs REST, monitoring, versioning des modèles avec MLflow et déploiement sur cloud (AWS, GCP, Azure).',
+                    fullContent: '<p>Déployer des modèles ML en production nécessite bien plus que simplement sauvegarder un fichier .pkl. Explorons les meilleures pratiques.</p><h2>Conteneurisation avec Docker</h2><p>Docker permet de packager votre modèle avec toutes ses dépendances dans un conteneur isolé et portable.</p><h2>APIs REST</h2><p>Exposez votre modèle via une API REST pour permettre l\'intégration facile avec d\'autres systèmes. Utilisez Flask ou FastAPI pour Python.</p><h2>Monitoring</h2><p>Surveillez :</p><ul><li>Les performances du modèle (drift, dégradation)</li><li>La latence et le throughput</li><li>Les erreurs et exceptions</li><li>L\'utilisation des ressources</li></ul><h2>Versioning avec MLflow</h2><p>MLflow permet de tracker les expériences, versionner les modèles et gérer le cycle de vie complet de vos modèles ML.</p><h2>Déploiement Cloud</h2><p>Options populaires :</p><ul><li><strong>AWS</strong> : SageMaker, EC2, Lambda</li><li><strong>GCP</strong> : AI Platform, Cloud Run</li><li><strong>Azure</strong> : ML Services, Container Instances</li></ul><h2>Bonnes Pratiques</h2><ul><li>Tests automatisés avant déploiement</li><li>Déploiements progressifs (canary, blue-green)</li><li>Plan de rollback</li><li>Documentation complète</li></ul>',
+                    link: ''
+                },
+                {
+                    id: Date.now() + 5,
+                    title: 'Tutoriel Complet : Créer un Système de Recommandation avec LangChain et Vector DB',
+                    category: 'Tutoriel',
+                    date: '2024-12-12',
+                    readTime: 20,
+                    gradient1: '#3b82f6',
+                    gradient2: '#6366f1',
+                    icon: 'fa-code',
+                    excerpt: 'Pas à pas pour construire un système de recommandation sémantique : embedding de documents, recherche vectorielle avec ChromaDB, intégration LangChain et création d\'une interface interactive.',
+                    fullContent: '<p>Dans ce tutoriel, nous allons construire un système de recommandation sémantique complet en utilisant LangChain et ChromaDB.</p><h2>Étape 1 : Préparation des Données</h2><p>Commencez par préparer vos documents. Dans notre cas, nous utiliserons des descriptions de livres.</p><h2>Étape 2 : Création d\'Embeddings</h2><p>Utilisez un modèle d\'embedding pour convertir vos documents en vecteurs. LangChain supporte plusieurs modèles comme OpenAI, HuggingFace, etc.</p><h2>Étape 3 : Stockage dans ChromaDB</h2><p>ChromaDB est une base de données vectorielle légère et facile à utiliser. Stockez vos embeddings avec leurs métadonnées.</p><h2>Étape 4 : Recherche Sémantique</h2><p>Lorsqu\'un utilisateur fait une requête, convertissez-la en embedding et recherchez les documents les plus similaires dans ChromaDB.</p><h2>Étape 5 : Interface avec Gradio</h2><p>Créez une interface interactive avec Gradio pour permettre aux utilisateurs de tester facilement votre système.</p><h2>Code Exemple</h2><pre><code>from langchain.vectorstores import Chroma\nfrom langchain.embeddings import OpenAIEmbeddings\n\n# Initialiser les embeddings\nembeddings = OpenAIEmbeddings()\n\n# Créer le vector store\nvectorstore = Chroma.from_documents(\n    documents=docs,\n    embedding=embeddings\n)\n\n# Recherche\nresults = vectorstore.similarity_search(query, k=5)\n</code></pre><p>Ce système offre une recommandation intelligente basée sur la similarité sémantique plutôt que sur des règles explicites.</p>',
+                    link: ''
+                }
+            ];
+
+            if (getBlogs().length === 0) {
+                saveBlogs(defaultBlogs);
+            }
+        }
+
+        function renderBlogs() {
+            const blogs = getBlogs();
+            const blogGrid = document.getElementById('blogGrid');
+
+            if (!blogGrid) return;
+
+            blogGrid.innerHTML = '';
+
+            // Sort blogs by date (newest first) and limit to 6 posts on homepage
+            const sortedBlogs = [...blogs].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 6);
+
+            sortedBlogs.forEach(blog => {
+                const blogCard = document.createElement('article');
+                blogCard.className = 'blog-card reveal';
+
+                const dateFormatted = new Date(blog.date).toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).replace(/(\w+)\s(\d+)/, '$2 $1');
+
+                blogCard.innerHTML = `
+                    <div class="blog-image" style="background: linear-gradient(135deg, ${blog.gradient1} 0%, ${blog.gradient2} 100%);">
+                        <i class="fas ${blog.icon}" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4rem; color: white; opacity: 0.9;"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar"></i>
+                                ${dateFormatted}
+                            </span>
+                            <span class="blog-category">${blog.category}</span>
+                        </div>
+                        <h3 class="blog-title">${blog.title}</h3>
+                        <p class="blog-excerpt">${blog.excerpt}</p>
+                        <div class="blog-footer">
+                            <a href="blog.html?id=${blog.id}" class="blog-read-more">
+                                Lire la suite
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <span class="blog-read-time">${blog.readTime} min</span>
+                        </div>
+                    </div>
+                `;
+
+                blogGrid.appendChild(blogCard);
+            });
+
+            // Trigger reveal animations
+            setTimeout(() => {
+                document.querySelectorAll('#blogGrid .reveal').forEach(el => {
+                    el.classList.add('active');
+                });
+            }, 100);
+        }
+
+        function loadBlogsList() {
+            const blogs = getBlogs();
+            const blogsList = document.getElementById('adminBlogsList');
+
+            blogsList.innerHTML = '';
+
+            if (blogs.length === 0) {
+                blogsList.innerHTML = `
+                    <div class="admin-empty-state">
+                        <i class="fas fa-blog"></i>
+                        <p>No blog posts yet. Create your first post!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort blogs by date (newest first)
+            const sortedBlogs = [...blogs].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            sortedBlogs.forEach(blog => {
+                const dateFormatted = new Date(blog.date).toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                const blogItem = document.createElement('div');
+                blogItem.className = 'admin-blog-item';
+                blogItem.innerHTML = `
+                    <div class="admin-blog-item-info">
+                        <div class="admin-blog-item-title">${blog.title}</div>
+                        <div class="admin-blog-item-meta">
+                            <span>${dateFormatted}</span>
+                            <span>•</span>
+                            <span>${blog.category}</span>
+                            <span>•</span>
+                            <span>${blog.readTime} min</span>
+                        </div>
+                    </div>
+                    <div class="admin-blog-item-actions">
+                        <div class="admin-icon-btn edit" onclick="editBlog(${blog.id})" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="admin-icon-btn delete" onclick="deleteBlog(${blog.id})" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    </div>
+                `;
+                blogsList.appendChild(blogItem);
+            });
+        }
+
+        function openNewBlogForm() {
+            // Redirect to blog editor page
+            window.location.href = 'blog-admin.html';
+        }
+
+        function editBlog(id) {
+            // Redirect to blog editor page with ID
+            window.location.href = `blog-admin.html?id=${id}`;
+        }
+
+        function deleteBlog(id) {
+            if (!confirm('Are you sure you want to delete this blog post?')) return;
+
+            const blogs = getBlogs();
+            const filteredBlogs = blogs.filter(b => b.id !== id);
+            saveBlogs(filteredBlogs);
+            loadBlogsList();
+        }
+
+        document.getElementById('adminBlogForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const editId = document.getElementById('blogEditId').value;
+            const blogs = getBlogs();
+
+            const blogData = {
+                id: editId ? parseInt(editId) : Date.now(),
+                title: document.getElementById('blogTitle').value,
+                category: document.getElementById('blogCategory').value,
+                date: document.getElementById('blogDate').value,
+                readTime: parseInt(document.getElementById('blogReadTime').value),
+                gradient1: document.getElementById('blogGradient1').value,
+                gradient2: document.getElementById('blogGradient2').value,
+                icon: document.getElementById('blogIcon').value || 'fa-file-alt',
+                excerpt: document.getElementById('blogExcerpt').value,
+                fullContent: document.getElementById('blogFullContent').value,
+                link: document.getElementById('blogLink').value || ''
+            };
+
+            if (editId) {
+                // Update existing blog
+                const index = blogs.findIndex(b => b.id === parseInt(editId));
+                if (index !== -1) {
+                    blogs[index] = blogData;
+                }
+            } else {
+                // Add new blog
+                blogs.push(blogData);
+            }
+
+            saveBlogs(blogs);
+            loadBlogsList();
+            closeAdminModal('adminBlogFormModal');
+
+            alert(editId ? 'Blog post updated successfully!' : 'Blog post created successfully!');
+        });
+
+        // Close modals when clicking outside
+        document.querySelectorAll('.admin-modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Full Blog Post View Functions
+        function showFullBlogPost(id) {
+            const blogs = getBlogs();
+            const blog = blogs.find(b => b.id === id);
+
+            if (!blog) return;
+
+            // If external link is provided, open it instead
+            if (blog.link && blog.link !== '' && blog.link !== '#') {
+                window.open(blog.link, '_blank');
+                return;
+            }
+
+            // Show full content in modal
+            const dateFormatted = new Date(blog.date).toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            document.getElementById('blogPostTitle').textContent = blog.title;
+
+            const metaHTML = `
+                <div class="blog-post-meta-item">
+                    <i class="far fa-calendar"></i>
+                    <span>${dateFormatted}</span>
+                </div>
+                <div class="blog-post-meta-item">
+                    <i class="far fa-clock"></i>
+                    <span>${blog.readTime} min de lecture</span>
+                </div>
+                <span class="blog-post-category">${blog.category}</span>
+            `;
+            document.getElementById('blogPostMeta').innerHTML = metaHTML;
+
+            document.getElementById('blogPostBody').innerHTML = blog.fullContent || blog.excerpt;
+
+            document.getElementById('blogPostModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeBlogPostModal() {
+            document.getElementById('blogPostModal').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close blog post modal when clicking outside
+        document.getElementById('blogPostModal').addEventListener('click', (e) => {
+            if (e.target.id === 'blogPostModal') {
+                closeBlogPostModal();
+            }
+        });
+
+        // Close blog post modal with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('blogPostModal').classList.contains('active')) {
+                closeBlogPostModal();
+            }
+        });
+
+        // Initialize blogs on page load
+        initializeDefaultBlogs();
+        renderBlogs();
     </script>
 </body>
+
 </html>
-                            
