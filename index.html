@@ -1,284 +1,421 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mostapha EL ANSARI - AI Engineer</title>
-  <meta name="description" content="AI Engineer: applications LLM, systèmes multi-agents, RAG et MLOps. Sophia-Antipolis, France.">
+  <title>Mostapha El Ansari — AI Engineer</title>
+  <meta name="description" content="AI Engineer building multi-agent systems, RAG and production ML on AWS. Based in Sophia-Antipolis, France.">
+  <meta property="og:title" content="Mostapha El Ansari — AI Engineer">
+  <meta property="og:description" content="Multi-agent systems, RAG, LLM inference and MLOps. Based in Sophia-Antipolis, France.">
+  <meta property="og:type" content="website">
   <link rel="canonical" href="https://mostaphaelansari.github.io/portfolio/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fff; --text: #37352f; --muted: rgba(55,53,47,.65); --faint: rgba(55,53,47,.09);
-      --hover: rgba(55,53,47,.06); --callout: #f1f1ef;
-      --gray: #e3e2e0; --blue: #d3e5ef; --green: #dbeddb; --orange: #fadec9; --purple: #e8deee; --pink: #f5e0e9; --brown: #e9e5e3;
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #0c0a09;
+      --text-2: #57534e;
+      --text-3: #a8a29e;
+      --border: #e7e5e4;
+      --accent: #4338ca;
+      --accent-soft: #eef2ff;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #191919; --text: rgba(255,255,255,.88); --muted: rgba(255,255,255,.5); --faint: rgba(255,255,255,.13);
-        --hover: rgba(255,255,255,.055); --callout: #252525;
-        --gray: #454b4e; --blue: #28456c; --green: #2b593f; --orange: #5c3b23; --purple: #492f64; --pink: #69314c; --brown: #603b2c;
+        --bg: #0c0a09;
+        --surface: #161413;
+        --text: #f5f5f4;
+        --text-2: #a8a29e;
+        --text-3: #6b6560;
+        --border: #292524;
+        --accent: #a5b4fc;
+        --accent-soft: #1e1b4b;
       }
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
     body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font: 16px/1.5 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    main { max-width: 900px; margin: 0 auto; padding: 5rem 96px 8rem; }
-    a { color: inherit; text-decoration: underline; text-decoration-color: rgba(55,53,47,.4); text-underline-offset: 2px; }
-    a:hover { background: var(--hover); }
-    .icon { font-size: 4.5rem; line-height: 1; margin-bottom: .6rem; }
-    h1 { font-size: 2.5rem; line-height: 1.2; font-weight: 700; margin: 0 0 1rem; }
-    h2 { font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 .5rem; padding-bottom: .2rem; }
-    .muted { color: var(--muted); }
-    .props { margin: 0 0 1rem; }
-    .prop { display: flex; gap: .5rem; padding: .25rem .4rem; border-radius: 4px; min-height: 34px; align-items: flex-start; }
-    .prop:hover { background: var(--hover); }
-    .prop .k { width: 160px; flex: none; color: var(--muted); font-size: .9rem; padding-top: 2px; }
-    .prop .v { flex: 1; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
-    .callout { display: flex; gap: .75rem; background: var(--callout); border-radius: 4px; padding: 1rem 1rem; margin: 1rem 0 0; }
-    hr { border: 0; border-top: 1px solid var(--faint); margin: 1.5rem 0 0; }
-    .pill { display: inline-block; font-size: .8rem; line-height: 1.4; padding: 0 6px; border-radius: 3px; color: var(--text); }
-    .gray { background: var(--gray); } .blue { background: var(--blue); } .green { background: var(--green); }
-    .orange { background: var(--orange); } .purple { background: var(--purple); } .pink { background: var(--pink); } .brown { background: var(--brown); }
-    details { margin: .15rem 0; }
-    summary { cursor: pointer; padding: .3rem .4rem; border-radius: 4px; list-style: none; display: flex; gap: .4rem; align-items: baseline; }
-    summary::before { content: "\25B8"; color: var(--muted); font-size: .85rem; width: 1rem; flex: none; transition: transform .1s; }
-    details[open] > summary::before { transform: rotate(90deg); }
-    summary::-webkit-details-marker { display: none; }
-    summary:hover { background: var(--hover); }
-    summary .right { margin-left: auto; font-size: .85rem; white-space: nowrap; }
-    details > ul { margin: .2rem 0 .6rem 1.4rem; padding-left: 1.2rem; }
-    details li { margin: .2rem 0; }
-    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
-    th { text-align: left; font-weight: 400; color: var(--muted); font-size: .85rem; border-bottom: 1px solid var(--faint); padding: .4rem .5rem; }
-    td { vertical-align: top; border-bottom: 1px solid var(--faint); padding: .5rem .5rem; }
-    td.name { width: 55%; font-weight: 500; }
-    td.name .desc { font-weight: 400; color: var(--muted); font-size: .85rem; margin-top: 2px; }
-    td.yr { color: var(--muted); width: 60px; }
-    td .pill { margin: 0 4px 4px 0; }
-    tr:hover td { background: var(--hover); }
-    .contact a { display: inline-block; margin-right: 1rem; }
-    footer { margin-top: 4rem; color: var(--muted); font-size: .85rem; }
-    @media (max-width: 700px) {
-      main { padding: 2.5rem 1.25rem 5rem; }
-      h1 { font-size: 2rem; }
-      .prop { flex-direction: column; gap: 0; }
-      .prop .k { width: auto; }
-      summary { flex-wrap: wrap; }
-      summary .right { margin-left: 1.4rem; white-space: normal; }
-      table, tbody, tr, td { display: block; width: 100% !important; }
-      thead { display: none; }
-      td { border: 0; padding: .1rem .5rem; }
-      tr { border-bottom: 1px solid var(--faint); padding: .5rem 0; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-weight: 600; letter-spacing: -.01em; }
+    .nav-links { display: flex; gap: 28px; font-size: .9rem; color: var(--text-2); }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .9rem; font-weight: 500;
+      padding: 10px 18px; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--surface);
+      transition: border-color .15s, transform .15s;
+    }
+    .btn:hover { border-color: var(--text-3); transform: translateY(-1px); }
+    .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn-primary:hover { border-color: var(--text); }
+    .btn svg { width: 16px; height: 16px; }
+
+    /* Hero */
+    .hero { padding: 112px 0 72px; }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .8rem; color: var(--text-2);
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 4px 12px; margin-bottom: 28px; background: var(--surface);
+    }
+    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #16a34a; }
+    h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 700; }
+    h1 span { color: var(--text-3); }
+    .lead { font-size: 1.2rem; color: var(--text-2); max-width: 640px; margin: 24px 0 36px; }
+    .lead strong { color: var(--text); font-weight: 500; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Metrics */
+    .metrics {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border); border-radius: 12px;
+      background: var(--surface); margin-top: 72px; overflow: hidden;
+    }
+    .metric { padding: 24px; border-left: 1px solid var(--border); }
+    .metric:first-child { border-left: 0; }
+    .metric b { display: block; font-size: 1.75rem; font-weight: 600; letter-spacing: -.02em; }
+    .metric span { font-size: .85rem; color: var(--text-2); }
+
+    /* Sections */
+    section { padding: 72px 0; border-top: 1px solid var(--border); }
+    .section-head { display: grid; grid-template-columns: 240px 1fr; gap: 48px; }
+    .label { font-family: var(--mono); font-size: .8rem; color: var(--text-3); text-transform: uppercase; letter-spacing: .08em; padding-top: 6px; }
+    h2 { font-size: 1.75rem; letter-spacing: -.02em; font-weight: 600; margin-bottom: 32px; }
+
+    /* Experience */
+    .job { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .job:first-of-type { padding-top: 0; }
+    .job:last-child { border-bottom: 0; }
+    .job h3 { font-size: 1.05rem; font-weight: 600; }
+    .job .org { color: var(--text-2); font-weight: 400; }
+    .job .when { font-family: var(--mono); font-size: .8rem; color: var(--text-3); white-space: nowrap; padding-top: 4px; }
+    .job ul { grid-column: 1 / -1; list-style: none; margin-top: 10px; }
+    .job li { color: var(--text-2); padding-left: 18px; position: relative; margin: 6px 0; }
+    .job li::before { content: ""; position: absolute; left: 0; top: .8em; width: 6px; height: 1px; background: var(--text-3); }
+    .job li b { color: var(--text); font-weight: 500; }
+    .now { font-size: .7rem; font-weight: 500; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: 2px 6px; margin-left: 8px; vertical-align: 2px; }
+
+    /* Projects */
+    .projects { display: grid; gap: 16px; }
+    .project {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px; transition: border-color .15s;
+    }
+    .project:hover { border-color: var(--text-3); }
+    .project-top { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-bottom: 8px; }
+    .project h3 { font-size: 1.1rem; font-weight: 600; }
+    .project .year { font-family: var(--mono); font-size: .8rem; color: var(--text-3); }
+    .project p { color: var(--text-2); }
+    .results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+    .result { border-left: 2px solid var(--accent); padding-left: 12px; }
+    .result b { display: block; font-size: 1.15rem; font-weight: 600; letter-spacing: -.01em; }
+    .result span { font-size: .8rem; color: var(--text-2); }
+    .stack { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack span {
+      font-family: var(--mono); font-size: .75rem; color: var(--text-2);
+      border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px;
+    }
+    .more { margin-top: 32px; }
+    .more h4 { font-size: .85rem; font-weight: 500; color: var(--text-2); margin-bottom: 8px; }
+    .more a {
+      display: flex; justify-content: space-between; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .more a:hover .t { color: var(--accent); }
+    .more .t { font-weight: 500; }
+    .more .d { color: var(--text-3); font-size: .9rem; text-align: right; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+    .skills h3 { font-size: .9rem; font-weight: 600; margin-bottom: 10px; }
+
+    /* Education */
+    .edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .edu div { border: 1px solid var(--border); border-radius: 12px; padding: 24px; background: var(--surface); }
+    .edu h3 { font-size: 1rem; font-weight: 600; }
+    .edu .when { font-family: var(--mono); font-size: .8rem; color: var(--text-3); display: block; margin: 4px 0 10px; }
+    .edu p { color: var(--text-2); font-size: .95rem; }
+    .certs { margin-top: 24px; color: var(--text-2); font-size: .95rem; }
+    .certs a { text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+    .certs a:hover { text-decoration-color: var(--text-2); }
+
+    /* Contact */
+    .contact p { color: var(--text-2); font-size: 1.1rem; max-width: 560px; margin-bottom: 28px; }
+    footer { border-top: 1px solid var(--border); padding: 32px 0; color: var(--text-3); font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .hero { padding: 72px 0 48px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); margin-top: 48px; }
+      .metric:nth-child(3) { border-left: 0; }
+      .metric:nth-child(n+3) { border-top: 1px solid var(--border); }
+      section { padding: 56px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 8px; }
+      .results, .skills, .edu { grid-template-columns: 1fr; }
+      .job { grid-template-columns: 1fr; }
+      .job .when { padding-top: 0; }
+      .more a { flex-direction: column; gap: 2px; }
+      .more .d { text-align: left; }
     }
   </style>
 </head>
 <body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Mostapha El Ansari</a>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
 <main>
-  <div class="icon">&#x1F9E0;</div>
-  <h1>Mostapha EL ANSARI</h1>
+  <header class="hero">
+    <div class="wrap">
+      <div class="status">Open to CDI / CDD roles · Sophia-Antipolis, France</div>
+      <h1>AI Engineer.<br><span>Agents, RAG &amp; production ML.</span></h1>
+      <p class="lead">
+        I build <strong>multi-agent systems</strong> and <strong>LLM applications</strong> for enterprise clients
+        at Bull SAS — from proof of concept to containerised production on AWS.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:mostapha.elansari@outlook.fr">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          Get in touch
+        </a>
+        <a class="btn" href="https://drive.google.com/file/d/1n4RcNd773JKvUVJJxI90PVtHqsmtnq4S/view?usp=sharing" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+          Résumé
+        </a>
+        <a class="btn" href="https://github.com/mostaphaelansari" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/mostapha-el-ansari" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg>
+          LinkedIn
+        </a>
+      </div>
 
-  <div class="props">
-    <div class="prop"><div class="k">Rôle</div><div class="v"><span class="pill blue">AI Engineer</span></div></div>
-    <div class="prop"><div class="k">Entreprise</div><div class="v">Bull SAS</div></div>
-    <div class="prop"><div class="k">Localisation</div><div class="v">Sophia-Antipolis, France</div></div>
-    <div class="prop"><div class="k">Statut</div><div class="v"><span class="pill green">Ouvert aux opportunités CDI / CDD</span></div></div>
-    <div class="prop"><div class="k">Email</div><div class="v"><a href="mailto:mostapha.elansari@outlook.fr">mostapha.elansari@outlook.fr</a></div></div>
-    <div class="prop"><div class="k">Liens</div><div class="v contact">
-      <a href="https://github.com/mostaphaelansari" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/mostapha-el-ansari" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://drive.google.com/file/d/1n4RcNd773JKvUVJJxI90PVtHqsmtnq4S/view?usp=sharing" target="_blank" rel="noopener">CV</a>
-    </div></div>
-  </div>
-  <hr>
+      <div class="metrics">
+        <div class="metric"><b>9×</b><span>LLM inference throughput with vLLM</span></div>
+        <div class="metric"><b>84%</b><span>RAG recall@5, up from 61%</span></div>
+        <div class="metric"><b>18 ms</b><span>p95 retrieval over 2.1M items</span></div>
+        <div class="metric"><b>−60%</b><span>manual CV screening time</span></div>
+      </div>
+    </div>
+  </header>
 
-  <div class="callout">
-    <div>&#x1F4A1;</div>
-    <div>Ingénieur IA junior : applications LLM, systèmes multi-agents, RAG, NLP et Deep Learning pour des cas d'usage entreprise. Python, PyTorch, LangGraph, AWS, Docker, FastAPI et MLOps.</div>
-  </div>
+  <section id="experience">
+    <div class="wrap section-head">
+      <div class="label">01 — Experience</div>
+      <div>
+        <h2>Where I've worked</h2>
 
-  <h2>Expérience</h2>
-    <details open>
-      <summary><b>AI Engineer, Enterprise AI</b> · Bull SAS <span class="muted right">Mars 2026 – Présent · Sophia-Antipolis</span></summary>
-      <ul><li>Conception de systèmes multi-agents avec AWS Strands, Bedrock AgentCore et LangGraph : coordination inter-agents, mémoire et orchestration d'outils.</li><li>PoC, PoV et démonstrations pré-ventes pour des clients entreprise français ; mise en production de cas d'usage sélectionnés sur des stacks AWS conteneurisées.</li></ul>
-    </details>
-    <details open>
-      <summary><b>AI Engineer (stage)</b> · Forvis Mazars Consulting <span class="muted right">Oct 2025 – Fév 2026 · Casablanca</span></summary>
-      <ul><li>Prototype LLM de suivi des candidats : parsing de CV avec Transformers (NER, matching profil-poste) et scoring XGBoost, exposé via FastAPI sur Docker.</li><li>Réduction de 60% du temps de screening manuel ; suivi des expériences et de la dérive des modèles avec MLflow.</li></ul>
-    </details>
-    <details open>
-      <summary><b>Machine Learning Engineer (stage)</b> · Smartly R&amp;D <span class="muted right">Fév 2025 – Août 2025 · Nice</span></summary>
-      <ul><li>Pipeline d'ingestion IoT temps réel (MQTT, PostgreSQL) et modèles de détection d'anomalies (Isolation Forest, LSTM) sous Docker.</li><li>Déploiement derrière FastAPI avec monitoring Grafana : détection de dérive et alertes automatiques.</li></ul>
-    </details>
-    <details open>
-      <summary><b>Data Engineer (stage)</b> · Locacoeur <span class="muted right">Juin 2024 – Fév 2025 · Aix-en-Provence</span></summary>
-      <ul><li>Pipeline OCR/NLP (spaCy, PyTorch) pour l'extraction de documents et API de classification de produits (Scikit-learn, FastAPI).</li><li>Automatisation de la migration de données et de la synchronisation CRM : traitement manuel ramené de plusieurs jours à moins de 10 minutes.</li></ul>
-    </details>
+        <div class="job">
+          <h3>AI Engineer, Enterprise AI <span class="org">· Bull SAS</span><span class="now">Current</span></h3>
+          <span class="when">Mar 2026 — Present</span>
+          <ul>
+            <li>Build <b>multi-agent systems</b> with AWS Strands, Bedrock AgentCore and LangGraph — inter-agent coordination, memory and tool orchestration.</li>
+            <li>Deliver PoCs, PoVs and pre-sales demos for French enterprise clients, taking selected use cases to <b>production</b> on containerised AWS stacks.</li>
+          </ul>
+        </div>
 
-  <h2>Projets</h2>
-  <table>
-    <thead><tr><th>Nom</th><th>Année</th><th>Stack</th></tr></thead>
-    <tbody>
-        <tr>
-          <td class="name">Recommandation Temps Réel - Two-Tower<div class="desc">Recommandeur en deux étapes sur 2,1M d&#x27;items et 480k utilisateurs : recall@50 de 0,23 à 0,38 grâce aux in-batch negatives avec correction logQ. Retrieval à 18 ms p95 sur index FAISS HNSW, rafraîchi toutes les heures depuis un flux Kafka.</div></td>
-          <td class="yr">2025</td>
-          <td><span class="pill brown">PyTorch</span><span class="pill green">Kafka</span><span class="pill brown">Redis</span><span class="pill orange">FAISS</span><span class="pill brown">Ray</span><span class="pill pink">Kubernetes</span></td>
-        </tr>
-        <tr>
-          <td class="name">RAG Spécialisé avec Harness d&#x27;Évaluation<div class="desc">QA sur 12k documents réglementaires à 2,4 s p95 ; recall@5 de 61% à 84% (chunking structurel, recherche hybride, reranking). Réponses non fidèles de 22% à 8% et coût des requêtes -38% (décomposition, abstention, routage de modèles).</div></td>
-          <td class="yr">2025</td>
-          <td><span class="pill blue">LangChain</span><span class="pill green">Qdrant</span><span class="pill purple">sentence-transformers</span><span class="pill purple">Ragas</span></td>
-        </tr>
-        <tr>
-          <td class="name">Optimisation d&#x27;Inférence LLM et Analyse des Coûts<div class="desc">Llama-3.1-8B auto-hébergé sur un A10G : débit x9 (95 à 870 tok/s) avec continuous batching et PagedAttention. Évaluation de la quantification AWQ 4-bit et modèle de coûts : l&#x27;auto-hébergement est rentable au-delà de ~65% d&#x27;utilisation GPU.</div></td>
-          <td class="yr">2025</td>
-          <td><span class="pill purple">vLLM</span><span class="pill brown">PyTorch</span><span class="pill pink">CUDA</span><span class="pill pink">Docker</span><span class="pill purple">Prometheus</span><span class="pill green">Grafana</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://github.com/mostaphaelansari/Semantic-Book-Recommender" target="_blank" rel="noopener">Semantic Book Recommender System</a><div class="desc">Système de recommandation sémantique combinant analyse de contenu et filtrage émotionnel.</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill blue">LangChain</span><span class="pill blue">ChromaDB</span><span class="pill orange">Gradio</span><span class="pill pink">Docker</span><span class="pill orange">NLP</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://data-augmentation-images.streamlit.app/" target="_blank" rel="noopener">Image Data Augmentation App</a><div class="desc">Application Streamlit puissante pour augmentation d&#x27;images multiples simultanément.</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill purple">Streamlit</span><span class="pill brown">Computer Vision</span><span class="pill pink">Python</span><span class="pill purple">Data Augmentation</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://github.com/mostaphaelansari/Youtube-Video-Summarizer-with-Llama3.2" target="_blank" rel="noopener">YouTube Video Summarizer with Llama 3.2</a><div class="desc">Application de résumé automatique de vidéos YouTube utilisant LangChain et Llama 3.2.</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill blue">LangChain</span><span class="pill blue">Llama 3.2</span><span class="pill purple">Streamlit</span><span class="pill orange">NLP</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://github.com/mostaphaelansari/Text-to-SQL-with-Deepseek" target="_blank" rel="noopener">Text to SQL with Deepseek</a><div class="desc">Application web convertissant questions en langage naturel en requêtes SQL.</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill green">SQLite</span><span class="pill blue">LangChain</span><span class="pill blue">Deepseek</span><span class="pill orange">Gradio</span><span class="pill orange">NLP</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://github.com/mostaphaelansari/LLM-Powered-Document-Q-A-with-Llama-3.2" target="_blank" rel="noopener">Deepseek AI Document Q&amp;A</a><div class="desc">Système avancé d&#x27;analyse et Q&amp;A documentaire avec modèle LLAMA RAG.</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill blue">Llama 3.2</span><span class="pill blue">RAG</span><span class="pill blue">LangChain</span><span class="pill orange">NLP</span></td>
-        </tr>
-        <tr>
-          <td class="name">Plateforme ETL Multi-Sources avec Airflow<div class="desc">Pipeline ETL automatisé pour ingestion multi-sources (API REST, CSV, SQL).</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill purple">Apache Airflow</span><span class="pill gray">PySpark</span><span class="pill gray">PostgreSQL</span><span class="pill pink">Docker</span></td>
-        </tr>
-        <tr>
-          <td class="name">Data Lakehouse - Architecture Medallion<div class="desc">Architecture Data Lakehouse (Bronze/Silver/Gold) pour traitement massif.</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill orange">Apache Kafka</span><span class="pill gray">PySpark</span><span class="pill gray">Delta Lake</span><span class="pill orange">Power BI</span></td>
-        </tr>
-        <tr>
-          <td class="name">Système de Recommandation Deep Learning<div class="desc">Système de recommandation avancé avec réseaux neuronaux (Collaborative Filtering + Content-Based).</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill gray">TensorFlow</span><span class="pill brown">PyTorch</span><span class="pill orange">Neural Networks</span><span class="pill pink">MLflow</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://github.com/mostaphaelansari/Learning-by-doing.git" target="_blank" rel="noopener">Gestion Intelligente du Trafic avec YOLO V8</a><div class="desc">Gestion du trafic révolutionnaire avec YOLO V8 pour identifier dynamiquement les voies les plus fréquentées.</div></td>
-          <td class="yr">2023</td>
-          <td><span class="pill gray">YOLO V8</span><span class="pill brown">Computer Vision</span><span class="pill pink">Python</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://github.com/mostaphaelansari/data-Analytics-data-science" target="_blank" rel="noopener">Recommandation de Films avec K-Means</a><div class="desc">Analyse du dataset MovieLens 100k avec K-means clustering pour calculer la similarité des préférences utilisateurs.</div></td>
-          <td class="yr">2023</td>
-          <td><span class="pill purple">Pandas</span><span class="pill gray">Scikit-learn</span><span class="pill purple">K-Means</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://drive.google.com/file/d/1JGJszgsuYAHdP-zxVQhjpQTzQl-QJwbk/view" target="_blank" rel="noopener">Segmentation d&#x27;Images Médicales - TransGAN &amp; TransUNet</a><div class="desc">Segmentation avancée d&#x27;images COVID-19 intégrant 3D GAN et TransUNet.</div></td>
-          <td class="yr">2023</td>
-          <td><span class="pill brown">PyTorch</span><span class="pill purple">GAN</span><span class="pill purple">TransUNet</span><span class="pill pink">Medical Imaging</span></td>
-        </tr>
-        <tr>
-          <td class="name"><a href="https://www.canva.com/design/DAF5U_7kR0o/Mzhw4QC1Zk4HS6cO3fsP7w/edit" target="_blank" rel="noopener">BERTech Materials - IA Découverte Fournisseurs</a><div class="desc">Plateforme B2B révolutionnaire utilisant BERT pour matching intelligent de fournisseurs.</div></td>
-          <td class="yr">2023</td>
-          <td><span class="pill gray">BERT</span><span class="pill orange">NLP</span><span class="pill blue">Machine Learning</span></td>
-        </tr>
-        <tr>
-          <td class="name">Prévision Séries Temporelles avec LSTM<div class="desc">Modèles prédictifs pour séries temporelles avec ARIMA, LSTM et Prophet.</div></td>
-          <td class="yr">2024</td>
-          <td><span class="pill pink">LSTM</span><span class="pill orange">Prophet</span><span class="pill pink">ARIMA</span><span class="pill pink">Python</span></td>
-        </tr>
-        <tr>
-          <td class="name">Détection de Fraude Bancaire<div class="desc">Modèle ML sophistiqué pour détection temps réel de fraude bancaire.</div></td>
-          <td class="yr">2023</td>
-          <td><span class="pill blue">Machine Learning</span><span class="pill gray">Scikit-learn</span><span class="pill brown">XGBoost</span><span class="pill pink">Python</span></td>
-        </tr>
-    </tbody>
-  </table>
+        <div class="job">
+          <h3>AI Engineer Intern <span class="org">· Forvis Mazars Consulting</span></h3>
+          <span class="when">Oct 2025 — Feb 2026</span>
+          <ul>
+            <li>Built an LLM applicant-tracking prototype: Transformers CV parsing (NER, profile-to-job matching) and XGBoost scoring, served via FastAPI on Docker.</li>
+            <li>Cut manual screening time by <b>60%</b>; tracked experiments and model drift with MLflow.</li>
+          </ul>
+        </div>
 
-  <h2>Compétences</h2>
-  <div class="props">
-      <div class="prop"><div class="k">Programmation</div><div class="v"><span class="pill pink">Python</span><span class="pill pink">R</span><span class="pill green">SQL</span><span class="pill purple">Bash</span><span class="pill gray">VBA</span></div></div>
-      <div class="prop"><div class="k">ML &amp; IA</div><div class="v"><span class="pill brown">PyTorch</span><span class="pill gray">Scikit-learn</span><span class="pill blue">Hugging Face Transformers</span><span class="pill brown">XGBoost</span><span class="pill blue">spaCy</span><span class="pill orange">NLP</span><span class="pill brown">Computer Vision</span><span class="pill pink">Deep Learning</span><span class="pill purple">Pandas</span><span class="pill blue">NumPy</span></div></div>
-      <div class="prop"><div class="k">LLMs &amp; agents</div><div class="v"><span class="pill blue">AWS Strands</span><span class="pill gray">Amazon Bedrock</span><span class="pill blue">Bedrock AgentCore</span><span class="pill green">LangGraph</span><span class="pill gray">Multi-Agent Systems</span><span class="pill blue">RAG</span><span class="pill blue">ChromaDB</span><span class="pill green">Qdrant</span></div></div>
-      <div class="prop"><div class="k">MLOps &amp; cloud</div><div class="v"><span class="pill orange">AWS (S3, EC2, EKS, Bedrock, Lambda)</span><span class="pill pink">Docker</span><span class="pill pink">Kubernetes</span><span class="pill brown">Pulumi</span><span class="pill brown">IaC</span><span class="pill pink">MLflow</span><span class="pill green">GitHub Actions</span><span class="pill gray">CI/CD</span></div></div>
-      <div class="prop"><div class="k">Observabilité</div><div class="v"><span class="pill gray">LangSmith</span><span class="pill green">Grafana</span><span class="pill purple">Prometheus</span><span class="pill pink">CloudWatch</span></div></div>
-      <div class="prop"><div class="k">Logiciels &amp; bases</div><div class="v"><span class="pill gray">FastAPI</span><span class="pill gray">PostgreSQL</span><span class="pill pink">Git</span><span class="pill purple">MQTT</span><span class="pill purple">Streamlit</span></div></div>
-    <div class="prop"><div class="k">Langues</div><div class="v"><span class="pill gray">Arabe · natif</span><span class="pill gray">Français · C1</span><span class="pill gray">Anglais · C1</span></div></div>
-  </div>
+        <div class="job">
+          <h3>Machine Learning Engineer Intern <span class="org">· Smartly R&amp;D</span></h3>
+          <span class="when">Feb 2025 — Aug 2025</span>
+          <ul>
+            <li>Designed a real-time IoT ingestion pipeline (MQTT, PostgreSQL) and trained anomaly detection models (Isolation Forest, LSTM).</li>
+            <li>Deployed models behind FastAPI with Grafana monitoring for drift detection and automated alerting.</li>
+          </ul>
+        </div>
 
-  <h2>Formation</h2>
-  <details open>
-    <summary><b>École Centrale Casablanca</b> <span class="muted right">Sep 2022 – Août 2026</span></summary>
-    <ul><li>Ingénieur Généraliste (niveau Master) : IA, NLP, Deep Learning, Data Engineering.</li></ul>
-  </details>
-  <details open>
-    <summary><b>École Centrale Marseille</b> <span class="muted right">Sep 2023 – Août 2024</span></summary>
-    <ul><li>Échange en Data Science : Deep Learning, CNN, Computer Vision.</li></ul>
-  </details>
+        <div class="job">
+          <h3>Data Engineer Intern <span class="org">· Locacoeur</span></h3>
+          <span class="when">Jun 2024 — Feb 2025</span>
+          <ul>
+            <li>Built an OCR/NLP pipeline (spaCy, PyTorch) for document extraction and a product classification API (Scikit-learn, FastAPI).</li>
+            <li>Automated data migration and CRM sync, reducing manual processing from <b>days to under 10 minutes</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h2>Certificats</h2>
-    <details>
-      <summary>Machine Learning &amp; AI <span class="muted">8</span></summary>
-      <ul>
-<li><a href="online%20courses/HF_LLM_CERT.jpg" target="_blank" rel="noopener">Hugging Face - LLM Certificate</a> <span class="muted">Hugging Face</span></li>
-<li><a href="online%20courses/Supervised%20Learning%20with%20scikit-learn_page-0001.jpg" target="_blank" rel="noopener">Supervised Learning with scikit-learn</a> <span class="muted">DataCamp</span></li>
-<li><a href="online%20courses/Machine%20Learning%20with%20Python%20Ibm%20coursera_page-0001.jpg" target="_blank" rel="noopener">Machine Learning with Python - IBM</a> <span class="muted">IBM</span></li>
-<li><a href="online%20courses/Machine%20Learning%20with%20Apache%20Spark%20coursera_page-0001.jpg" target="_blank" rel="noopener">Machine Learning with Apache Spark</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Building%20Machine%20Learning%20Pipelines%20in%20PySpark%20MLlib%20coursera_page-0001.jpg" target="_blank" rel="noopener">Building ML Pipelines in PySpark MLlib</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Mining%20Quality%20Prediction%20Using%20Machine%20%26%20Deep%20Learning%20coursera_page-0001.jpg" target="_blank" rel="noopener">Mining Quality Prediction Using ML &amp; DL</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Building%20a%20Keras%20Horse%20Zebra%20CycleGAN%20Webapp%20with%20Streamlit%20%20coursera_page-0001.jpg" target="_blank" rel="noopener">CycleGAN Webapp with Keras &amp; Streamlit</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Google%20Cloud%20Big%20Data%20and%20Machine%20Learning%20Fundamentals%20coursera_page-0001.jpg" target="_blank" rel="noopener">Google Cloud Big Data &amp; ML Fundamentals</a> <span class="muted">Google Cloud</span></li>
-      </ul>
-    </details>
-    <details>
-      <summary>Data Engineering <span class="muted">7</span></summary>
-      <ul>
-<li><a href="online%20courses/Understanding%20Data%20Engineering%20Datacamp_page-0001.jpg" target="_blank" rel="noopener">Understanding Data Engineering</a> <span class="muted">DataCamp</span></li>
-<li><a href="online%20courses/Build%20Data%20Lakes%20and%20Data%20Warehouses%20on%20Google%20Cloud_page-0001.jpg" target="_blank" rel="noopener">Build Data Lakes &amp; Warehouses on GCP</a> <span class="muted">Google Cloud</span></li>
-<li><a href="online%20courses/Python%20and%20Pandas%20for%20Data%20Engineering%20coursera_page-0001.jpg" target="_blank" rel="noopener">Python and Pandas for Data Engineering</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Mastering%20Data%20Analysis%20with%20Pandas%20coursera_page-0001.jpg" target="_blank" rel="noopener">Mastering Data Analysis with Pandas</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Introduction%20to%20SQL%20certificate%20Datacamp_page-0001.jpg" target="_blank" rel="noopener">Introduction to SQL</a> <span class="muted">DataCamp</span></li>
-<li><a href="online%20courses/Introduction%20to%20Power%20BI%20Datacamp_page-0001.jpg" target="_blank" rel="noopener">Introduction to Power BI</a> <span class="muted">DataCamp</span></li>
-<li><a href="online%20courses/Python%20for%20Data%20Science%2C%20AI%20%26%20Development%20IBM%20coursera_page-0001.jpg" target="_blank" rel="noopener">Python for Data Science &amp; AI - IBM</a> <span class="muted">IBM</span></li>
-      </ul>
-    </details>
-    <details>
-      <summary>Python &amp; Programming <span class="muted">2</span></summary>
-      <ul>
-<li><a href="online%20courses/Python%20Classes%20and%20Inheritance%20coursera_page-0001.jpg" target="_blank" rel="noopener">Python Classes and Inheritance</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Client%20Needs%20and%20Softw%20are%20Requ%20irements%20coursera_page-0001.jpg" target="_blank" rel="noopener">Client Needs &amp; Software Requirements</a> <span class="muted">Coursera</span></li>
-      </ul>
-    </details>
-    <details>
-      <summary>DevOps &amp; Tools <span class="muted">2</span></summary>
-      <ul>
-<li><a href="online%20courses/Introduction%20to%20Docker%20Coursera_page-0001.jpg" target="_blank" rel="noopener">Introduction to Docker</a> <span class="muted">Coursera</span></li>
-<li><a href="online%20courses/Introduction%20to%20Git%20Datacamp_page-0001.jpg" target="_blank" rel="noopener">Introduction to Git</a> <span class="muted">DataCamp</span></li>
-      </ul>
-    </details>
-    <details>
-      <summary>Project Management <span class="muted">2</span></summary>
-      <ul>
-<li><a href="online%20courses/Google%20Project%20Management%20Coursera_page-0001.jpg" target="_blank" rel="noopener">Google Project Management</a> <span class="muted">Google Cloud</span></li>
-<li><a href="online%20courses/Scrum%20Master%20Certification%20coursera_page-0001.jpg" target="_blank" rel="noopener">Scrum Master Certification</a> <span class="muted">Coursera</span></li>
-      </ul>
-    </details>
+  <section id="projects">
+    <div class="wrap section-head">
+      <div class="label">02 — Projects</div>
+      <div>
+        <h2>Selected work</h2>
+        <div class="projects">
 
-  <footer>&copy; 2026 Mostapha EL ANSARI</footer>
+          <article class="project">
+            <div class="project-top"><h3>Real-time recommendation with two-tower retrieval</h3><span class="year">2025</span></div>
+            <p>Two-stage recommender over 2.1M items and 480k users, trained with in-batch negatives and logQ popularity correction. FAISS HNSW indexes over 128-dim embeddings, refreshed hourly from a Kafka stream and validated by counterfactual replay over 3 weeks of logged traffic.</p>
+            <div class="results">
+              <div class="result"><b>0.23 → 0.38</b><span>recall@50</span></div>
+              <div class="result"><b>18 ms</b><span>p95 retrieval latency</span></div>
+              <div class="result"><b>Hourly</b><span>index refresh from Kafka</span></div>
+            </div>
+            <div class="stack"><span>PyTorch</span><span>Kafka</span><span>Redis</span><span>FAISS</span><span>Ray</span><span>Kubernetes</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><h3>Domain-specific RAG with an evaluation harness</h3><span class="year">2025</span></div>
+            <p>Question answering over 12k regulatory documents. Structure-aware chunking, hybrid search and reranking for retrieval; query decomposition, confidence-based abstention and model routing for faithfulness and cost.</p>
+            <div class="results">
+              <div class="result"><b>61% → 84%</b><span>recall@5</span></div>
+              <div class="result"><b>22% → 8%</b><span>unfaithful answers</span></div>
+              <div class="result"><b>−38%</b><span>cost per query</span></div>
+            </div>
+            <div class="stack"><span>Python</span><span>LangChain</span><span>Qdrant</span><span>sentence-transformers</span><span>Ragas</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><h3>LLM inference optimisation and cost analysis</h3><span class="year">2025</span></div>
+            <p>Self-hosted Llama-3.1-8B on a single A10G with continuous batching and PagedAttention. Evaluated AWQ 4-bit quantisation and built a cost model comparing self-hosting against API pricing.</p>
+            <div class="results">
+              <div class="result"><b>95 → 870</b><span>tokens / second</span></div>
+              <div class="result"><b>9×</b><span>throughput gain</span></div>
+              <div class="result"><b>~65%</b><span>GPU utilisation break-even</span></div>
+            </div>
+            <div class="stack"><span>vLLM</span><span>PyTorch</span><span>CUDA</span><span>Docker</span><span>Prometheus</span><span>Grafana</span></div>
+          </article>
+        </div>
+
+        <div class="more">
+          <h4>More on GitHub</h4>
+          <a href="https://github.com/mostaphaelansari/Semantic-Book-Recommender" target="_blank" rel="noopener">
+            <span class="t">Semantic Book Recommender ↗</span><span class="d">LangChain · ChromaDB · Gradio</span>
+          </a>
+          <a href="https://github.com/mostaphaelansari/Text-to-SQL-with-Deepseek" target="_blank" rel="noopener">
+            <span class="t">Text-to-SQL with DeepSeek ↗</span><span class="d">LangChain · SQLite · Gradio</span>
+          </a>
+          <a href="https://github.com/mostaphaelansari/LLM-Powered-Document-Q-A-with-Llama-3.2" target="_blank" rel="noopener">
+            <span class="t">Document Q&amp;A with Llama 3.2 ↗</span><span class="d">RAG · LangChain</span>
+          </a>
+          <a href="https://github.com/mostaphaelansari/Youtube-Video-Summarizer-with-Llama3.2" target="_blank" rel="noopener">
+            <span class="t">YouTube Video Summarizer ↗</span><span class="d">Llama 3.2 · LangChain · Streamlit</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap section-head">
+      <div class="label">03 — Skills</div>
+      <div>
+        <h2>Toolkit</h2>
+        <div class="skills">
+          <div>
+            <h3>LLMs &amp; agents</h3>
+            <div class="stack"><span>AWS Strands</span><span>Amazon Bedrock</span><span>Bedrock AgentCore</span><span>LangGraph</span><span>LangChain</span><span>RAG</span><span>Qdrant</span><span>ChromaDB</span><span>vLLM</span></div>
+          </div>
+          <div>
+            <h3>Machine learning</h3>
+            <div class="stack"><span>PyTorch</span><span>Hugging Face</span><span>Scikit-learn</span><span>XGBoost</span><span>spaCy</span><span>FAISS</span><span>NLP</span><span>Computer Vision</span></div>
+          </div>
+          <div>
+            <h3>MLOps, cloud &amp; infra</h3>
+            <div class="stack"><span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Pulumi</span><span>MLflow</span><span>GitHub Actions</span><span>FastAPI</span><span>Kafka</span></div>
+          </div>
+          <div>
+            <h3>Observability &amp; data</h3>
+            <div class="stack"><span>LangSmith</span><span>Grafana</span><span>Prometheus</span><span>CloudWatch</span><span>PostgreSQL</span><span>Redis</span><span>Python</span><span>SQL</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap section-head">
+      <div class="label">04 — Education</div>
+      <div>
+        <h2>Education</h2>
+        <div class="edu">
+          <div>
+            <h3>École Centrale Casablanca</h3>
+            <span class="when">2022 — 2026</span>
+            <p>Ingénieur Généraliste (MSc level) — AI, NLP, deep learning, data engineering.</p>
+          </div>
+          <div>
+            <h3>École Centrale Marseille</h3>
+            <span class="when">2023 — 2024</span>
+            <p>Data science exchange — deep learning, CNNs, computer vision.</p>
+          </div>
+        </div>
+        <p class="certs">
+          Certifications include
+          <a href="online%20courses/HF_LLM_CERT.jpg" target="_blank" rel="noopener">Hugging Face LLM</a>,
+          <a href="online%20courses/Google%20Cloud%20Big%20Data%20and%20Machine%20Learning%20Fundamentals%20coursera_page-0001.jpg" target="_blank" rel="noopener">Google Cloud Big Data &amp; ML</a>,
+          <a href="online%20courses/Machine%20Learning%20with%20Python%20Ibm%20coursera_page-0001.jpg" target="_blank" rel="noopener">IBM Machine Learning with Python</a> and
+          <a href="online%20courses/Introduction%20to%20Docker%20Coursera_page-0001.jpg" target="_blank" rel="noopener">Docker</a>.
+          Languages: Arabic (native), French (C1), English (C1).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap section-head">
+      <div class="label">05 — Contact</div>
+      <div>
+        <h2>Let's talk</h2>
+        <p>I'm looking for a CDI or CDD role building production AI systems. The fastest way to reach me is by email.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:mostapha.elansari@outlook.fr">mostapha.elansari@outlook.fr</a>
+          <a class="btn" href="https://www.linkedin.com/in/mostapha-el-ansari" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mostapha El Ansari</span>
+    <span>Sophia-Antipolis, France</span>
+  </div>
+</footer>
+
 </body>
 </html>
